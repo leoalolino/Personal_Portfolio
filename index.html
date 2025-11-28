@@ -4,20 +4,137 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <script
-            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+        @font-face {
+            font-family: 'Monocraft';
+            src: url('public/fonts/Monocraft.woff') format('woff');
+        }
+        .mono {
+            font-family: 'Monocraft', monospace;
+        }
+        
+        .icon-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: -100px;
+            animation: img-tilt 3s linear infinite;
+        }
+        
+        @keyframes slideAcross {
+            0% {
+                left: -100px;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .img-rot {
+            animation: img-tilt 3s linear infinite;
+        }
+        
+        @keyframes img-tilt {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
     </head>
-    <body class>
-        <nav class>
-            <ul class="ml-15 flex justify-left space-x-15 p-5">
-                <li>About Me</li>
-                <li>Projects</li>
-                <li>Contact</li>
+    <body>
+        <nav>
+            <ul class="flex justify-left space-x-[40px] p-5 font-sm mx-10">
             </ul>
         </nav>
-        <div class="bg-red-500 h-[1500px] mx-30">
-            .
+        <div class="w-[90%] mx-auto min-h-screen">
+            <div class="h-[780px] border relative">
+                <div class="icon-container" id="pic"></div>
+            </div>
         </div>
 
+        <script>
+        const img = [
+            'img/Angular.png',
+            'img/csharp.png',
+            'img/CSS3.png',
+            'img/HTML5.png',
+            'img/Java.png',
+            'img/JavaScript.png',
+            'img/jQuery.png',
+            'img/Laravel.png',
+            'img/Next.js.png',
+            'img/Node.js.png',
+            'img/Nuxt JS.png',
+            'img/PHP.png',
+            'img/Python.png',
+            'img/React.png',
+            'img/Rust.png',
+            'img/Svelte.png',
+            'img/Swift.png',
+            'img/Tailwind CSS.png',
+        ];
+
+        const list = [
+            { 'name': 'About me' },
+            { 'name': 'Projects' },
+            { 'name': 'Contact' }
+        ];
+
+        const ul = document.querySelector('ul');
+        const pict = document.getElementById('pic');
+
+        // Navbar list
+        list.forEach(items => {
+            ul.innerHTML += `<li class="">${items.name}</li>`;
+        });
+
+        let iconIndex = 0;
+        
+        function createFloatingIcon() {
+            const randomImg = img[iconIndex % img.length];
+            const randomY = Math.random() * (pict.offsetHeight - 60);
+            const randomDuration = 8 + Math.random() * 8; // 8-16 seconds
+            const randomDelay = Math.random() * 2; // 0-2 seconds delay
+            
+            const icon = document.createElement('img');
+            icon.src = randomImg;
+            icon.alt = 'Tech icon';
+            icon.className = 'floating-icon';
+            icon.style.top = `${randomY}px`;
+            icon.style.animation = `slideAcross ${randomDuration}s linear forwards, img-tilt 3s linear infinite`;
+            icon.style.animationDelay = `${randomDelay}s, 0s`;
+            
+            pict.appendChild(icon);
+            
+            iconIndex++;
+            
+            // Remove icon after it's done animating
+            setTimeout(() => {
+                icon.remove();
+            }, (randomDuration + randomDelay) * 1000);
+        }
+
+        // Create icons continuously at random intervals
+        function startAnimation() {
+            createFloatingIcon();
+            
+            const nextDelay = 500 + Math.random() * 1500; // 500ms-2s between icons
+            setTimeout(startAnimation, nextDelay);
+        }
+
+        // Start the animation
+        startAnimation();
+    </script>
     </body>
 </html>
