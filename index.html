@@ -5,41 +5,81 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Changa+One:ital@0;1&family=Rowdies:wght@300;400;700&family=Science+Gothic:wght@100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nosifer&family=Rubik+Glitch&family=Science+Gothic:wght@100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+            rel="stylesheet">
         <style>
-        @font-face {
-            font-family: 'Monocraft';
-            src: url('public/fonts/Monocraft.woff') format('woff');
-        }
-        .mono {
-            font-family: 'Monocraft', monospace;
-        }
-        
         .icon-container {
-            position: relative;
-            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
+            pointer-events: auto;
+        }
+        .what{
+            font-family: 'New Amsterdam', sans-serif; 
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+        .font {
+            font-family: "Rowdies", sans-serif;
+            font-weight: 700;
+            font-style: normal;
         }
         
-        .floating-icon {
+        .font2 {
+            font-family: 'Rubik Glitch', system-ui;
+            font-weight: 700;
+        }
+        .font3{
+            font-family: 'New Amsterdam', sans-serif;
+            font-weight: 400;
+            color: #fff;
+        }
+        .falling-icon {
             position: absolute;
             width: 40px;
             height: 40px;
-            left: -100px;
-            animation: img-tilt 3s linear infinite;
+            top: -100px;
+            opacity: 0;
+            cursor: grab;
+            pointer-events: auto;
         }
         
-        @keyframes slideAcross {
+        .falling-icon.dragging {
+            cursor: grabbing;
+            animation: none !important;
+            z-index: 1000;
+        }
+        
+        @keyframes fallDown {
             0% {
-                left: -100px;
+                top: -100px;
+                opacity: 0;
+            }
+            2% {
+                opacity: 0.8;
+            }
+            98% {
+                opacity: 0.8;
             }
             100% {
-                left: 100%;
+                top: 100%;
+                opacity: 0;
             }
-        }
-        
-        .img-rot {
-            animation: img-tilt 3s linear infinite;
         }
         
         @keyframes img-tilt {
@@ -52,89 +92,99 @@
         }
     </style>
     </head>
-    <body>
-        <nav>
-            <ul class="flex justify-left space-x-[40px] p-5 font-sm mx-10">
+    <body class>
+        <nav class>
+            <ul
+                class="flex justify-left space-x-[60px] p-6 mono text-2xl font3 text-black">
+                <li>About</li>
+                <li>Project</li>
+                <li>Contact</li>
+                <li>Switch UI/UX</li>
             </ul>
         </nav>
-        <div class="w-[90%] mx-auto min-h-screen">
-            <div class="h-[780px] border relative">
-                <div class="icon-container" id="pic"></div>
+        <div class="relative w-[85%] h-screen mx-auto flex">
+            <!-- Text Section - Behind Everything -->
+            <div class="absolute top-[120px] left-[50px] z-0">
+                <h1 class="font text-[110px] leading-[0.95] tracking-tight">
+                    Fullstack Vibe<br>
+                    Coder &
+                </h1>
+                <h2 class="font2 text-[90px] leading-[1] mt-2"
+                    style="text-decoration: line-through; text-decoration-thickness: 6px;">
+                    UI/UX Designer
+                </h2>
+            </div>
+
+            <!-- Three Column Layout -->
+            <div class="h-[770px] w-full"></div>
+            <div
+                class="h-[770px] w-full relative overflow-hidden z-10">
+                <div class="icon-container" id="pict"></div>
+            </div>
+            <picture
+                class="absolute top-0 left-1/2 -translate-x-1/2 translate-y-[70px] pointer-events-none z-20"
+                id="mainPicture">
+                <img src="/img/test.png" alt="Person"
+                    class="w-[1200px] h-[700px] isolate pointer-events-auto"
+                    id="personImg">
+            </picture>
+        </div>
+        <div
+            class="flex w-full bg-[#191919] -translate-y-[69px] justify-evenly">
+            <ul id="tabnav" class="p-4 flex space-x-[70px]">
+
+            </ul>
+        </div>
+
+        <div class="w-full overflow-x-hidden">
+            <span class="flex translate-x-40">
+                <p
+                    class="what text-5xl font-stretch-120% border-b-[5px] border-black">
+                    WHAT I USUALLY DO.
+                </p>
+            </span>
+            <div class="w-[85%] mx-auto">
+
+                <div class="w-full mt-20">
+                    <div class="w-[100%] grid grid-cols-2 gap-4 mx-auto"
+                        id="what">
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <script>
-        const img = [
-            'img/Angular.png',
-            'img/csharp.png',
-            'img/CSS3.png',
-            'img/HTML5.png',
-            'img/Java.png',
-            'img/JavaScript.png',
-            'img/jQuery.png',
-            'img/Laravel.png',
-            'img/Next.js.png',
-            'img/Node.js.png',
-            'img/Nuxt JS.png',
-            'img/PHP.png',
-            'img/Python.png',
-            'img/React.png',
-            'img/Rust.png',
-            'img/Svelte.png',
-            'img/Swift.png',
-            'img/Tailwind CSS.png',
-        ];
+        <script src="app.js" type="module"></script>
 
-        const list = [
-            { 'name': 'About me' },
-            { 'name': 'Projects' },
-            { 'name': 'Contact' }
-        ];
-
-        const ul = document.querySelector('ul');
-        const pict = document.getElementById('pic');
-
-        // Navbar list
-        list.forEach(items => {
-            ul.innerHTML += `<li class="">${items.name}</li>`;
-        });
-
-        let iconIndex = 0;
-        
-        function createFloatingIcon() {
-            const randomImg = img[iconIndex % img.length];
-            const randomY = Math.random() * (pict.offsetHeight - 60);
-            const randomDuration = 8 + Math.random() * 8; // 8-16 seconds
-            const randomDelay = Math.random() * 2; // 0-2 seconds delay
-            
-            const icon = document.createElement('img');
-            icon.src = randomImg;
-            icon.alt = 'Tech icon';
-            icon.className = 'floating-icon';
-            icon.style.top = `${randomY}px`;
-            icon.style.animation = `slideAcross ${randomDuration}s linear forwards, img-tilt 3s linear infinite`;
-            icon.style.animationDelay = `${randomDelay}s, 0s`;
-            
-            pict.appendChild(icon);
-            
-            iconIndex++;
-            
-            // Remove icon after it's done animating
-            setTimeout(() => {
-                icon.remove();
-            }, (randomDuration + randomDelay) * 1000);
-        }
-
-        // Create icons continuously at random intervals
-        function startAnimation() {
-            createFloatingIcon();
-            
-            const nextDelay = 500 + Math.random() * 1500; // 500ms-2s between icons
-            setTimeout(startAnimation, nextDelay);
-        }
-
-        // Start the animation
-        startAnimation();
-    </script>
     </body>
 </html>
+<script>
+    const tnl = [
+        'UI/UX DESIGNER',
+        'DEVELOPER',
+        'STUDENT',
+        'PRODUCT DESIGNER',
+        'FRONTEND',
+        'BACKEND',
+        'MOTION DESIGNER'
+    ]
+    const ttl = [
+        'Developer',
+        'Design',
+        'Lifelong Learner',
+        'Problem Solving'
+
+    ]
+    const tabnav = document.getElementById('tabnav');
+
+    tnl.forEach(nl => {
+        tabnav.innerHTML += `<li class="text-white flex gap-4"><svg version="1.1" id="_x32_" height="26px" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#444444"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#303030;}  </style> <g> <path class="st0" d="M511.883,298.395c-2.781-27.281-54.391-46.141-129.406-51.844c-7.172-42.047-15.469-90.563-17.891-103.75 c-5.563-30.203-45.344-47.094-74.891-25.313c-15.5,11.422-29.359,12.234-36.703,12.234s-15.5,1.625-36.703-12.234 c-30.719-20.094-69.328-4.891-74.875,25.313c-2.969,16.109-14.688,84.844-22.391,130.203 C45.211,293.817-2.711,323.114,0.117,350.723c4.25,41.625,122.266,63.671,263.578,49.218 C405.039,385.488,516.148,340.036,511.883,298.395z M132.289,308.348l8.156-42.406c0,0,145.188,22.828,226.75-19.578l8.156,35.891 C375.352,282.254,287.258,337.708,132.289,308.348z"></path> </g> </g></svg> <p>${nl}</p></li>`;    
+    });
+    const wht = document.getElementById('what');
+
+    ttl.forEach(nl => {
+        wht.innerHTML += `<div class="border border-l-[4px] border-black  p-2 h-[100px]"><div class=" " ></div>${nl}</div>`;
+    });
+    
+
+</script>
