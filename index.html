@@ -8,16 +8,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
-            href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Changa+One:ital@0;1&family=Rowdies:wght@300;400;700&family=Science+Gothic:wght@100..900&display=swap"
-            rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Nosifer&family=Rubik+Glitch&family=Science+Gothic:wght@100..900&display=swap"
-            rel="stylesheet">
-        <link
             href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
             rel="stylesheet">
         <link
-            href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
         <style>
         .icon-container {
@@ -34,20 +28,9 @@
             font-weight: 400;
             color: #1a1a1a;
         }
-        .font {
-            font-family: "Rowdies", sans-serif;
-            font-weight: 700;
-            font-style: normal;
-        }
-        
-        .font2 {
-            font-family: 'Rubik Glitch', system-ui;
-            font-weight: 700;
-        }
-        .font3{
-            font-family: 'New Amsterdam', sans-serif;
-            font-weight: 400;
-            color: #fff;
+        .opensanz{
+            font-family: 'Open sans', sans-serif;
+            color: #1a1a1a;
         }
         .falling-icon {
             position: absolute;
@@ -64,7 +47,17 @@
             animation: none !important;
             z-index: 1000;
         }
-        
+        .miniNav-slide{
+            animation: miniSlide 35s linear 0s infinite;
+        }
+        @keyframes miniSlide {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
         @keyframes fallDown {
             0% {
                 top: -100px;
@@ -90,33 +83,33 @@
                 transform: rotate(360deg);
             }
         }
-    </style>
+        
+        </style>
     </head>
-    <body class>
-        <nav class>
+    <body class="overflow-x-hidden scroll-smooth">
+        <nav class="w-[90%] mx-auto">
             <ul
-                class="flex justify-left space-x-[60px] p-6 mono text-2xl font3 text-black">
-                <li>About</li>
-                <li>Project</li>
-                <li>Contact</li>
-                <li>Switch UI/UX</li>
+                class="flex justify-left space-x-[60px] p-6 what text-2xl font3 text-black"
+                id="main-nav">
+
             </ul>
         </nav>
-        <div class="relative w-[85%] h-screen mx-auto flex">
-            <!-- Text Section - Behind Everything -->
-            <div class="absolute top-[120px] left-[50px] z-0">
-                <h1 class="font text-[110px] leading-[0.95] tracking-tight">
+        <!-- first -->
+        <div class="relative w-[90%] h-screen mx-auto flex ">
+            <div
+                class="absolute top-[120px] left-[50px] z-0 font-stretch-[120%]">
+                <h1 class="what text-[110px] leading-[0.95] tracking-tight">
                     Fullstack Vibe<br>
                     Coder &
                 </h1>
-                <h2 class="font2 text-[90px] leading-[1] mt-2"
-                    style="text-decoration: line-through; text-decoration-thickness: 6px;">
+                <h2 class="what text-[90px] leading-[1] mt-2 ">
                     UI/UX Designer
                 </h2>
             </div>
 
-            <!-- Three Column Layout -->
-            <div class="h-[770px] w-full"></div>
+            <div class="h-[770px] w-full">
+                <!-- THE TEXT SECTION -->
+            </div>
             <div
                 class="h-[770px] w-full relative overflow-hidden z-10">
                 <div class="icon-container" id="pict"></div>
@@ -131,60 +124,332 @@
         </div>
         <div
             class="flex w-full bg-[#191919] -translate-y-[69px] justify-evenly">
-            <ul id="tabnav" class="p-4 flex space-x-[70px]">
+            <ul id="tabnav" class="p-4 flex space-x-[70px] miniNav-slide">
 
             </ul>
         </div>
 
-        <div class="w-full overflow-x-hidden">
-            <span class="flex translate-x-40">
-                <p
-                    class="what text-5xl font-stretch-120% border-b-[5px] border-black">
-                    WHAT I USUALLY DO.
-                </p>
-            </span>
-            <div class="w-[85%] mx-auto">
+        <!-- second -->
+        <div class="w-full overflow-hidden">
+            <div class="w-[90%]">
+                <span class="flex translate-x-40">
+                    <p
+                        class="what text-5xl font-stretch-[120]% border-b-[5px] border-black">
+                        WHAT I USUALLY DO.
+                    </p>
+                </span>
+                <div class="w-[85%] mx-auto">
 
-                <div class="w-full mt-20">
-                    <div class="w-[100%] grid grid-cols-2 gap-4 mx-auto"
-                        id="what">
+                    <div class="w-full mt-20">
+                        <div class="w-[100%] grid grid-cols-2 gap-4 mx-auto"
+                            id="what">
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
 
+        <!-- third -->
+        <div
+            class="w-full overflow-hidden mt-[120px]">
+            <div
+                class="flex mx-auto translate-x-40 w-[90%] space-x-2">
+                <img src="img/blockchain.png"
+                    class="w-[70px] h-[70px]" alt>
+                <span
+                    class="what text-5xl font-stretch-[120%] border-b-[7px] border-black">
+                    TECHSTACK I FREQUENTLY USED.
+                </span>
+            </div>
+            <div class="min-h-svh max-w-svh mt-20">
+                <div
+                    class="flex justify-center items-center">
+
+                    <div
+                        class="size-[550px]"
+                        id="tech-icons">
+
+                    </div>
+
+                    <div
+                        class="size-[550px]">
+                        <div
+                            class="text-base/6 text-justify indent-8 text-2xl font-bold text-lg/8 w-[90%] mx-auto ">
+                            <h4
+                                class="indent-[-1px] underline decoration-3">Beyond
+                                Coding</h4>
+                            <p> I utilize this strategic blend of technologies
+                                from
+                                robust
+                                backend systems to responsive frontend
+                                frameworks
+                                not
+                                just for
+                                coding, but to architect and build solutions
+                                that
+                                contribute
+                                meaningful value to users and solve real world
+                                problems.
+                                Each
+                                tool is selected to ensure performance,
+                                scalability,
+                                and
+                                maintainability in the final product.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full overflow-hidden border">
+                    <div
+                        class="flex size-[90%] justify-center mx-auto border border-red-500 space-x-10">
+                        <div class="border size-[550px] p-4" id="projects">
+
+                            <span
+                                class="flex justify-between mx-8 gap-2 items-center mb-4">
+                                <p
+                                    class="what text-2xl underline flex gap-2"><img
+                                        src="img/backlog.png"
+                                        class="size-[25px]" alt="Backlog icon">
+                                    Recent Projects.</p>
+                                <p
+                                    class="what hover:cursor-pointer text-2xl">view
+                                    all ></p>
+                            </span>
+                            <div
+                                class="grid grid-cols-2 justify-items-center gap-4">
+
+                                <a href="#project-one"
+                                    class="inline-block hover:shadow-lg transition duration-300">
+                                    <img src="img/open-folder.png"
+                                        class="size-[150px] hover:-skew-6 transition duration-300"
+                                        alt="Link to Project One">
+                                </a>
+
+                                <a href="#project-two"
+                                    class="inline-block hover:shadow-lg transition duration-300">
+                                    <img src="img/open-folder.png"
+                                        class="size-[150px] hover:-skew-6 transition duration-300"
+                                        alt="Link to Project Two">
+                                </a>
+
+                                <a href="#project-three"
+                                    class="inline-block col-span-2 justify-self-center hover:shadow-lg transition duration-300">
+                                    <img src="img/open-folder.png"
+                                        class="size-[150px] hover:-skew-6 transition duration-300"
+                                        alt="Link to Project Three">
+                                </a>
+
+                            </div>
+                        </div>
+                        <!-- UI/UX designs -->
+                        <div class="border size-[550px] mt-20">
+                            <span
+                                class="flex justify-between mx-10 gap-2 items-center mb-4">
+                                <p
+                                    class="what text-2xl underline flex gap-2"><img
+                                        src="img/ui-design.png"
+                                        class="size-[25px]" alt="Backlog icon">
+                                    UI/UX Designs.</p>
+                                <p
+                                    class="what hover:cursor-pointer text-2xl ">view
+                                    all ></p>
+                            </span>
+                            <div
+                                class="w-full grid grid-cols-2 gap-2 w-full mx-auto"
+                                id="ui-ux">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full overflow-x-hidden mt-20">
+            <div class="h-[450px] border flex justify-center translate-x-8">
+
+                <div class="w-2/5 border py-8 px-4 flex flex-col">
+
+                    <h2 class="text-3xl font-bold mb-4">How's your experience
+                        with my personal website?</h2>
+
+                    <p class="text-lg text-gray-700 mb-8">
+                        Are you interested in collaborating on a project or
+                        simply connecting?
+                        If you like what you see, don't hesitate to reach out or
+                        just simply send me a message
+                        I'm always open to new opportunities!
+                    </p>
+
+                    <h3 class="text-2xl font-semibold mb-3">Connect With Me</h3>
+
+                    <div class="flex flex-col gap-2">
+                        <a href="#fb">Fb</a>
+                        <a href="#wa">whatsup</a>
+                        <a href="#dc">discord</a>
+                    </div>
+                </div>
+
+                <div
+                    class="w-2/5 border py-8 px-4 flex items-start justify-start">
+
+                    <form class="flex flex-col gap-4 w-[85%]">
+
+                        <p class="what text-2xl font-bold">Send a message</p>
+
+                        <input
+                            type="email"
+                            placeholder="Example@gmail.com"
+                            class="border border-gray-400 p-3 rounded-md focus:border-blue-500 focus:outline-none w-full">
+
+                        <textarea
+                            name="message"
+                            rows="5"
+                            placeholder="How can I help you?"
+                            class="border border-gray-400 p-3 rounded-md resize-none focus:border-blue-500 focus:outline-none w-full h-[170px]"></textarea>
+
+                        <button
+                            class="bg-black text-white p-3 rounded-md hover:bg-gray-800 transition">
+                            Send Message
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer
+            class="max-w-4xl mx-auto px-4 py-8 border-t border-border mt-12">
+            <div class="flex justify-center items-center">
+                <p>
+                    @2025 Leo alolino
+                </p>
+            </div>
+        </footer>
         <script src="app.js" type="module"></script>
 
     </body>
 </html>
 <script>
-    const tnl = [
+    const techDataList = [
+        {name: 'Backend', id: 'bck', techstack: [
+            {img: 'img/PHP.png', name: 'Php'},
+            {img: 'img/Laravel.png', name: 'Laravel'},
+            {img: 'img/PostgresSQL.png', name: 'PostgresSQL'}
+        ]},
+        {name: 'Frontend', id: 'frnt', techstack: [
+            {img: 'img/JavaScript.png', name: 'JavaScript'},
+            {img:  'img/HTML5.png', name: 'HTML'},
+            {img: 'img/CSS3.png', name: 'CSS'},
+            {img: 'img/Tailwind CSS.png', name: 'Tailwind'},
+            {img: 'img/Vite.js.png', name: 'Vite'}
+        ]},
+        {name: 'Developer Tools', id: 'dt', techstack: [
+            {img: 'img/Visual Studio Code (VS Code).png', name: 'VSCode'},
+            {img: 'img/Git.png', name: 'Git'},
+            {img: 'img/GitHub.png', name: 'Github'},
+            {img: 'img/Figma.png', name: 'Figma',},
+            {img:  'img/Adobe Illustrator.png', name: 'Adobe Illustrator'},
+            {img: 'img/Adobe Photoshop.png', name: 'Adobe Photoshop'}
+        ]},
+    ]
+    const miniNavData = [
         'UI/UX DESIGNER',
         'DEVELOPER',
         'STUDENT',
-        'PRODUCT DESIGNER',
+        'LIFELONG LEARNER',
         'FRONTEND',
         'BACKEND',
-        'MOTION DESIGNER'
     ]
-    const ttl = [
-        'Developer',
-        'Design',
-        'Lifelong Learner',
-        'Problem Solving'
+    const iDo = [
+        {name: 'Develop', txt: "I'm driven by an obsession with clean code and continuous improvement. I consistently build personal projects to master new frameworks and sharpen my full-stack development skills." },
+        {name: 'Design', txt: 'I enjoy UI/UX design as a crucial step in the development process, focusing on intuitive interfaces that are both functional and visually compelling.'},
+        {name: 'Explore New Technologies', txt: 'Dedicated to lifelong learning, I continuously scan the tech landscape to adopt cutting-edge tools and methodologies that enhance efficiency and output'},
+        {name: 'Touch Some Grass', txt: "I usually go outside whenever I'm offline. This dedicated downtime promotes clarity, creativity, and prevents burnout."}
 
     ]
-    const tabnav = document.getElementById('tabnav');
-
-    tnl.forEach(nl => {
-        tabnav.innerHTML += `<li class="text-white flex gap-4"><svg version="1.1" id="_x32_" height="26px" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#444444"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#303030;}  </style> <g> <path class="st0" d="M511.883,298.395c-2.781-27.281-54.391-46.141-129.406-51.844c-7.172-42.047-15.469-90.563-17.891-103.75 c-5.563-30.203-45.344-47.094-74.891-25.313c-15.5,11.422-29.359,12.234-36.703,12.234s-15.5,1.625-36.703-12.234 c-30.719-20.094-69.328-4.891-74.875,25.313c-2.969,16.109-14.688,84.844-22.391,130.203 C45.211,293.817-2.711,323.114,0.117,350.723c4.25,41.625,122.266,63.671,263.578,49.218 C405.039,385.488,516.148,340.036,511.883,298.395z M132.289,308.348l8.156-42.406c0,0,145.188,22.828,226.75-19.578l8.156,35.891 C375.352,282.254,287.258,337.708,132.289,308.348z"></path> </g> </g></svg> <p>${nl}</p></li>`;    
-    });
+    const navList = [
+        {name: 'About'}, {name: 'Projects'}, {name: 'Contact'}, {name: 'Switch'}]
+    const projectList = [
+        {name: '',},
+        {name: '',},
+        {name: '',},
+    ]
+    const uiuxList = [
+        {name: 'test', img: ''},
+        {name: 'test2', img: ''},
+        {name: 'test3', img: ''},
+        {name: 'test4', img: ''}
+    ]
+    const techIconsSec = document.getElementById('tech-icons');
+    const miniNavSec = document.getElementById('tabnav');
     const wht = document.getElementById('what');
+    const mNav = document.getElementById('main-nav')
+    const uiuxSec = document.getElementById('ui-ux');
+    const projectSec = document.getElementById('projects')
 
-    ttl.forEach(nl => {
-        wht.innerHTML += `<div class="border border-l-[4px] border-black  p-2 h-[100px]"><div class=" " ></div>${nl}</div>`;
+    let MiniNav = '';
+    let Mnav = '';
+    let Ido = '';
+    let techs = '';
+    let uiux = '';
+
+    navList.forEach(x => {
+        Mnav += `<li>${x.name}</li>`;
     });
-    
 
+    miniNavData.forEach(lists => {
+        MiniNav += `<li class="text-white flex gap-4 what text-2xl"><svg version="1.1" id="32" height="26px" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#444444"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#303030;}  </style> <g> <path class="st0" d="M511.883,298.395c-2.781-27.281-54.391-46.141-129.406-51.844c-7.172-42.047-15.469-90.563-17.891-103.75 c-5.563-30.203-45.344-47.094-74.891-25.313c-15.5,11.422-29.359,12.234-36.703,12.234s-15.5,1.625-36.703-12.234 c-30.719-20.094-69.328-4.891-74.875,25.313c-2.969,16.109-14.688,84.844-22.391,130.203 C45.211,293.817-2.711,323.114,0.117,350.723c4.25,41.625,122.266,63.671,263.578,49.218 C405.039,385.488,516.148,340.036,511.883,298.395z M132.289,308.348l8.156-42.406c0,0,145.188,22.828,226.75-19.578l8.156,35.891 C375.352,282.254,287.258,337.708,132.289,308.348z"></path> </g> </g></svg> <p>${lists}</p></li>`;        
+    });
+
+    iDo.forEach(x => {
+    Ido += `
+        <div class="border border-l-[4px] border-black p-2 h-[110px] flex items-center gap-4 shadow"> 
+            
+            <div class="
+                bg-black w-[50px] h-[50px] text-white text-lg 
+                flex items-center justify-center font-bold flex-shrink-0">
+                1
+            </div>
+            
+            <div class="flex flex-col justify-start tracking-wider"> 
+                <p class="font-semibold text-md what text-xl lett">${x.name}</p>
+                <p>${x.txt}</p>
+            </div>
+        </div>`;
+    });
+
+    techDataList.forEach(x => {
+    techs += `
+        <div class="category-group mb-6">
+            <h3 class="category-title text-xl font-bold mb-2">${x.name}</h3>
+
+            <div class="flex flex-wrap gap-2"> `;
+    x.techstack.forEach(y => {
+        techs +=
+         `<span class="flex items-center border-[#414141] border rounded-lg gap-2 p-1 hover:-translate-y-0.5">
+                <img src="${y.img}" class="size-[20px] ml-2">
+                <p class="text-sm">${y.name}</p>
+          </span>`;
+    });
+
+    });
+
+uiuxList.forEach(x => {
+    uiux += `
+        <div class="border w-full h-60 border-red-500 p-2 
+             flex flex-col items-center justify-center flex-shrink-0"> 
+            
+            <img src="${x.img}" alt="${x.name}" class="w-2/3 mb-2 max-h-3/5 object-contain"> 
+            <p class="text-sm font-semibold opensanz text-center">${x.name}</p>
+        </div>
+    `;
+});
+
+    mNav.innerHTML = Mnav;
+    miniNavSec.innerHTML = MiniNav;
+    wht.innerHTML = Ido;
+    techIconsSec.innerHTML = techs;
+    uiuxSec.innerHTML = uiux;
 </script>
