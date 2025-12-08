@@ -84,34 +84,34 @@ export function second() {
 
     iDo.forEach((x, i) => {
         Ido += `
-        <div class="border border-l-[4px] border-black p-2 h-[110px] flex items-center gap-4 shadow"> 
-            
-            <div class="
-                bg-black w-[50px] h-[50px] text-white text-lg 
-                flex items-center justify-center font-bold flex-shrink-0">
-                ${i + 1}
-            </div>
-            
-            <div class="flex flex-col justify-start tracking-wider"> 
-                <p class="font-semibold text-md what text-xl">${x.name}</p>
-                <p>${x.txt}</p>
-            </div>
-        </div>`;
+    <div class="border border-l-[4px] border-black p-2 sm:p-4 h-auto sm:h-[110px] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 shadow"> 
+        <div class="
+            bg-black w-[50px] h-[50px] text-white text-lg 
+            flex items-center justify-center font-bold flex-shrink-0">
+            ${i + 1}
+        </div>
+        <div class="flex flex-col justify-start tracking-wider"> 
+            <p class="font-semibold text-lg sm:text-xl what">${x.name}</p>
+            <p class="text-sm sm:text-base">${x.txt}</p>
+        </div>
+    </div>`;
     });
 
     techDataList.forEach(x => {
         techs += `
-        <div class="category-group mb-6">
-            <h3 class="category-title text-xl font-bold mb-2">${x.name}</h3>
+    <div class="category-group mb-4 sm:mb-6">
+        <h3 class="category-title text-lg sm:text-xl font-bold mb-2">${x.name}</h3>
+        <div class="flex flex-wrap gap-2"> `;
 
-            <div class="flex flex-wrap gap-2"> `;
         x.techstack.forEach(y => {
-            techs +=
-                `<span class="flex items-center border-[#414141] border rounded-lg gap-2 p-1 hover:-translate-y-0.5">
-                <img src="${y.img}" class="size-[20px] ml-2">
-                <p class="text-sm">${y.name}</p>
-          </span>`;
+            techs += `
+        <span class="flex items-center border-[#414141] border rounded-lg gap-1 sm:gap-2 p-1 hover:-translate-y-0.5 transition-transform">
+            <img src="${y.img}" class="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] ml-1 sm:ml-2">
+            <p class="text-xs sm:text-sm pr-1 sm:pr-2">${y.name}</p>
+        </span>`;
         });
+
+        techs += `</div></div>`;
     });
     if (projectList.length % 2 == 1) {
         proj += `
