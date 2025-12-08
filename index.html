@@ -13,6 +13,8 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet">
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style>
         .icon-container {
             position: absolute;
@@ -96,7 +98,7 @@
             <details class="md:hidden w-full mt-2 group">
 
                 <summary
-                    class="list-none cursor-pointer p-3 border rounded-md flex justify-end size-[50px] items-center ml-auto">
+                    class="list-none cursor-pointer p-3 border border-black rounded-md flex justify-end size-[50px] items-center ml-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30"
                         height="30" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2"
@@ -122,36 +124,31 @@
                 </div>
             </details>
         </nav>
-        <!-- first -->
-        <div class="relative w-[90%] mx-auto flex flex-col lg:flex-row mb-0">
-            <div
-                class="absolute lg:top-[120px] lg:left-[50px] top-[40px] left-[20px] z-0 font-stretch-[120%]">
-                <h1
-                    class="what text-[60px] sm:text-[80px] lg:text-[110px] leading-[0.95] tracking-tight">
-                    Fullstack Vibe<br>
-                    Coder &
-                </h1>
-                <h2
-                    class="what text-[50px] sm:text-[70px] lg:text-[90px] leading-[1] mt-2">
-                    UI/UX Designer
-                </h2>
-            </div>
 
-            <div
-                class="h-[500px] sm:h-[650px] lg:h-[770px] w-full relative overflow-hidden z-10">
-                <div class="icon-container" id="pict"></div>
+        <div
+            class="relative h-[695px] w-[90%] mx-auto flex flex-col lg:flex-row mb-0 justify-center">
+            <!-- 1st -->
+            <div class="border w-[40%] -translate-x-[350px] absolute">
+                hello
             </div>
-
-            <picture
-                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[25px] sm:translate-y-[13px] md:translate-y-[38px] lg:translate-y-[70px] pointer-events-none "
-                id="mainPicture">
-                <img src="/img/test.png" alt="Person"
-                    class="w-[25vw] sm:size-[750px] md:size-[710px] lg:size-[100px] xl:size-[700px] min-w-[350px] mx-auto h-auto isolate pointer-events-auto object-contain"
-                    id="personImg">
-            </picture>
+            <!-- 2nd -->
+            <div class="relative inline-block w-[970px] border">
+                <picture class="relative block">
+                    <img src="img/me1.png"
+                        class="w-[350px] mx-auto block transition-opacity duration-300 translate-y-48"
+                        id="me1" alt>
+                    <img src="img/me2.png"
+                        class="w-[970px] translate-y-[216px] absolute top-0 left-0 block transition-opacity duration-300 opacity-0"
+                        id="me2" alt>
+                </picture>
+            </div>
+            <!-- 3rd -->
+            <div class="border w-[40%] translate-x-[350px] absolute">
+                hello
+            </div>
         </div>
 
-        <div class="flex w-full bg-[#191919] justify-center overflow-x-auto">
+        <div class="flex w-full bg-[#191919] justify-center overflow-x-hidden">
             <ul id="tabnav"
                 class="p-2 sm:p-4 flex space-x-[30px] sm:space-x-[50px] lg:space-x-[70px] miniNav-slide whitespace-nowrap">
             </ul>
@@ -172,6 +169,7 @@
                         <div
                             class="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mx-auto"
                             id="what">
+
                         </div>
                     </div>
                 </div>
@@ -179,131 +177,126 @@
         </div>
 
         <!-- third -->
+        <div class="w-full overflow-hidden mt-[120px]">
+            <div
+                class="flex mx-auto translate-x-4 sm:translate-x-10 md:translate-x-20 lg:translate-x-40 w-[95%] sm:w-[90%] space-x-2 items-center">
+                <img src="img/blockchain.png"
+                    class="w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[70px] md:h-[70px]"
+                    alt>
+                <span
+                    class="what text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-stretch-[120%] border-b-[4px] sm:border-b-[5px] md:border-b-[7px] border-black">
+                    TECHSTACK I FREQUENTLY USED.
+                </span>
+            </div>
+            <div class="w-full my-10 flex justify-center items-center">
                 <div
-                    class="w-full overflow-hidden mt-[120px]">
-                    <div class="flex mx-auto translate-x-4 sm:translate-x-10 md:translate-x-20 lg:translate-x-40 w-[95%] sm:w-[90%] space-x-2 items-center">
-            <img src="img/blockchain.png" class="w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[70px] md:h-[70px]" alt>
-            <span class="what text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-stretch-[120%] border-b-[4px] sm:border-b-[5px] md:border-b-[7px] border-black">
-                TECHSTACK I FREQUENTLY USED.
-            </span>
-        </div>
-
-        <div class="min-h-screen w-full mt-10 sm:mt-16 md:mt-20">
-            <div class="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-0 px-4">
-                <div class="w-full max-w-[550px] lg:w-[550px]" id="tech-icons">
-                </div>
-                <div class="w-full max-w-[550px] lg:w-[550px]">
-                    <div class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-justify indent-8 leading-relaxed w-[95%] sm:w-[90%] mx-auto">
-                        <h4 class="indent-[-1px] underline decoration-2 sm:decoration-3 mb-2">Beyond Coding</h4>
-                        <p>I utilize this strategic blend of technologies from robust backend systems to responsive frontend frameworks not just for coding, but to architect and build solutions that contribute meaningful value to users and solve real world problems. Each tool is selected to ensure performance, scalability, and maintainability in the final product.</p>
-                    </div>
+                    class="w-[90%] md:w-[85%] lg:w-[77%] grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5 lg:gap-6"
+                    id="techIcon">
                 </div>
             </div>
         </div>
 
-                <div class="w-full overflow-hidden border">
+        <div class="w-full h-svh border border-black">
+            <div class="w-[90%] border border-blue-500 h-svh mx-auto">
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center">
                     <div
-                        class="flex size-[90%] justify-center mx-auto border border-red-500 space-x-10">
-                        <div class="border size-[550px] p-4">
-                            <span
-                                class="flex justify-between mx-8 gap-2 items-center mb-4">
-                                <p
-                                    class="what text-2xl underline flex gap-2"><img
-                                        src="img/backlog.png"
-                                        class="size-[25px]" alt="Backlog icon">
-                                    Recent Projects.</p>
-                                <p
-                                    class="what hover:cursor-pointer text-2xl">view
-                                    all ></p>
-                            </span>
-                            <div
-                                class
-                                id="projects">
-
-                            </div>
+                        class="border w-[280px] h-[480px] rounded-md bg-[#2b2b35] p-2 flex flex-col">
+                        <div
+                            class="bg-white rounded-md w-full h-[220px] overflow-hidden">
+                            <img src="img/Adobe Illustrator.png"
+                                class="w-full h-full object-fill scale-110" alt>
                         </div>
-                        <!-- UI/UX designs -->
-                        <div class="border size-[550px] mt-20">
-                            <span
-                                class="flex justify-between mx-10 gap-2 items-center mb-4">
-                                <p
-                                    class="what text-2xl underline flex gap-2"><img
-                                        src="img/ui-design.png"
-                                        class="size-[25px]" alt="Backlog icon">
-                                    UI/UX Designs.</p>
-                                <p
-                                    class="what hover:cursor-pointer text-2xl ">view
-                                    all ></p>
-                            </span>
-                            <div
-                                class="w-full grid grid-cols-2 gap-2 w-full mx-auto"
-                                id="ui-ux">
-
-                            </div>
+                    </div>
+                    <div
+                        class="border w-[280px] h-[480px] rounded-md bg-[#2b2b35] p-2 flex flex-col">
+                        <div
+                            class="bg-white rounded-md w-full h-[220px] overflow-hidden">
+                            <img src="img/Adobe Illustrator.png"
+                                class="w-full h-full object-fill" alt>
+                        </div>
+                    </div>
+                    <div
+                        class="border w-[280px] h-[480px] rounded-md bg-[#2b2b35] p-2 flex flex-col">
+                        <div
+                            class="bg-white rounded-md w-full h-[220px] overflow-hidden">
+                            <img src="img/Adobe Illustrator.png"
+                                class="w-full h-full object-fill" alt>
+                        </div>
+                    </div>
+                    <div
+                        class="border w-[280px] h-[480px] rounded-md bg-[#2b2b35] p-2 flex flex-col">
+                        <div
+                            class="bg-white rounded-md w-full h-[220px] overflow-hidden">
+                            <img src="img/Adobe Illustrator.png"
+                                class="w-full h-full object-fill" alt>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="w-full overflow-x-hidden mt-20">
-            <div class="h-[450px] border flex justify-center translate-x-8">
-
-                <div class="w-2/5 border py-8 px-4 flex flex-col">
-
-                    <h2 class="text-3xl font-bold mb-4">How's your experience
-                        with my personal website?</h2>
-
-                    <p class="text-lg text-gray-700 mb-8">
-                        Are you interested in collaborating on a project or
-                        simply connecting?
-                        If you like what you see, don't hesitate to reach out or
-                        just simply send me a message
-                        I'm always open to new opportunities!
-                    </p>
-
-                    <h3 class="text-2xl font-semibold mb-3">Connect With Me</h3>
-
-                    <div class="flex flex-col gap-2">
-                        <a href="#fb">Fb</a>
-                        <a href="#wa">whatsup</a>
-                        <a href="#dc">discord</a>
-                    </div>
-                </div>
-
+        <div class="w-full overflow-x-hidden mt-10 sm:mt-16 md:mt-20">
+            <div class="min-h-[450px] flex justify-center px-4">
                 <div
-                    class="w-2/5 border py-8 px-4 flex items-start justify-start">
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full max-w-6xl">
+                    <!-- Left Section -->
+                    <div class="py-6 sm:py-8 px-4 flex flex-col">
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+                            How's your experience with my personal website?
+                        </h2>
+                        <p
+                            class="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                            Are you interested in collaborating on a project or
+                            simply connecting?
+                            If you like what you see, don't hesitate to reach
+                            out or just simply send me a message.
+                            I'm always open to new opportunities!
+                        </p>
+                        <h3
+                            class="text-xl sm:text-2xl font-semibold mb-3">Connect
+                            With Me</h3>
+                        <div class="flex flex-col gap-2 text-sm sm:text-base">
+                            <a href="#fb"
+                                class="hover:text-blue-600 transition-colors">Facebook</a>
+                            <a href="#wa"
+                                class="hover:text-green-600 transition-colors">WhatsApp</a>
+                            <a href="#dc"
+                                class="hover:text-indigo-600 transition-colors">Discord</a>
+                        </div>
+                    </div>
 
-                    <form class="flex flex-col gap-4 w-[85%]">
-
-                        <p class="what text-2xl font-bold">Send a message</p>
-
-                        <input
-                            type="email"
-                            placeholder="Example@gmail.com"
-                            class="border border-gray-400 p-3 rounded-md focus:border-blue-500 focus:outline-none w-full">
-
-                        <textarea
-                            name="message"
-                            rows="5"
-                            placeholder="How can I help you?"
-                            class="border border-gray-400 p-3 rounded-md resize-none focus:border-blue-500 focus:outline-none w-full h-[170px]"></textarea>
-
-                        <button
-                            class="bg-black text-white p-3 rounded-md hover:bg-gray-800 transition">
-                            Send Message
-                        </button>
-
-                    </form>
+                    <div
+                        class="py-6 sm:py-8 px-4 flex items-start justify-start">
+                        <form class="flex flex-col gap-3 sm:gap-4 w-full">
+                            <p class="what text-xl sm:text-2xl font-bold">Send a
+                                message</p>
+                            <input
+                                type="email"
+                                placeholder="Example@gmail.com"
+                                class="border border-gray-400 p-2.5 sm:p-3 rounded-md focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 w-full text-sm sm:text-base transition-all">
+                            <textarea
+                                name="message"
+                                rows="5"
+                                placeholder="How can I help you?"
+                                class="border border-gray-400 p-2.5 sm:p-3 rounded-md resize-none focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 w-full h-[150px] sm:h-[170px] text-sm sm:text-base transition-all"></textarea>
+                            <button
+                                class="bg-black text-white p-2.5 sm:p-3 rounded-md hover:bg-gray-800 transition-all duration-200 text-sm sm:text-base font-medium">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <div class name="visible">
+            hi
+        </div>
         <footer
-            class="max-w-4xl mx-auto px-4 py-8 border-t border-border mt-12">
+            class="w-full px-4 py-6 sm:py-8 border-t mx-auto border-gray-300 mt-8 sm:mt-12">
             <div class="flex justify-center items-center">
-                <p>
-                    @2025 Leo alolino
+                <p class="text-sm sm:text-base text-gray-600">
+                    © 2025 Leo Alolino. All rights reserved.
                 </p>
             </div>
         </footer>
@@ -312,4 +305,15 @@
     </body>
 </html>
 <script>
-</script>
+        $(document).ready(() => {
+            $("picture").on('mouseenter', () => {
+                $('#me1').css('opacity', '0');
+                $('#me2').css('opacity', '1');
+            });
+            
+            $("picture").on('mouseleave', () => {
+                $('#me1').css('opacity', '1');
+                $('#me2').css('opacity', '0');
+            });
+        });
+    </script>
