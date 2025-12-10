@@ -44,7 +44,6 @@ export function second() {
                 { img: 'img/Git.png', name: 'Git' },
                 { img: 'img/GitHub.png', name: 'Github' },
                 { img: 'img/Figma.png', name: 'Figma', },
-                { img: 'img/Adobe Illustrator.png', name: 'Adobe Illustrator' },
                 { img: 'img/Adobe Photoshop.png', name: 'Adobe Photoshop' }
             ]
         },
@@ -52,7 +51,7 @@ export function second() {
     const techs = document.getElementById('techIcon').innerHTML = techDataList.flatMap(e =>
         e.techstack.map(x => `
                 <div class="border border-black rounded p-3 md:p-4 h-[60px] flex items-center gap-3 md:gap-4 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 ease-in-out hover:cursor-pointer">
-                    <div class="bg-gray-400 p-2 w-10 h-10 flex items-center justify-center flex-shrink-0 rounded">
+                    <div class=" p-2 w-10 h-10 flex items-center justify-center flex-shrink-0 rounded">
                         <img src="${x.img}" class="w-7 h-7 object-contain">
                     </div>
             <div class="text-sm md:text-base font-medium truncate">${x.name}</div>
@@ -73,7 +72,7 @@ export function second() {
                     ${i + 1}
                 </div>
                 <div class="flex flex-col justify-start tracking-wider"> 
-                    <p class="font-semibold text-lg sm:text-xl what">${x.name}</p>
+                    <p class="font-semibold text-base lg:text-2xl sm:text-lg what">${x.name}</p>
                     <p class="text-sm text-base/7">${x.txt}</p>
                 </div>
             </div>`;
