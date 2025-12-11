@@ -23,28 +23,30 @@ export function second() {
     const techDataList = [
         {
             name: 'Backend', id: 'bck', techstack: [
-                { img: 'img/PHP.png', name: 'Php' },
-                { img: 'img/Laravel.png', name: 'Laravel' },
-                { img: 'img/PostgresSQL.png', name: 'PostgresSQL' }
+                { svg: '<StackIcon name="php" />', name: 'Php' },
+                { svg: 'svg/Laravel.png', name: 'Laravel' },
+                { svg: 'svg/PostgresSQL.png', name: 'PostgresSQL' },
+                { svg: 'svg/Node.js.png', name: 'Node' },
+                { svg: 'svg/Express.png', name: 'Express' }
             ]
         },
         {
             name: 'Frontend', id: 'frnt', techstack: [
-                { img: 'img/JavaScript.png', name: 'JavaScript' },
-                { img: 'img/HTML5.png', name: 'HTML' },
-                { img: 'img/CSS3.png', name: 'CSS' },
-                { img: 'img/Tailwind CSS.png', name: 'Tailwind' },
-                { img: 'img/Vite.js.png', name: 'Vite' },
-                { img: 'img/jQuery.png', name: 'jQuery' }
+                { svg: 'svg/JavaScript.png', name: 'JavaScript' },
+                { svg: 'svg/HTML5.png', name: 'HTML' },
+                { svg: 'svg/CSS3.png', name: 'CSS' },
+                { svg: 'svg/Tailwind CSS.png', name: 'Tailwind' },
+                { svg: 'svg/Vite.js.png', name: 'Vite' },
+                { svg: 'svg/jQuery.png', name: 'jQuery' }
             ]
         },
         {
             name: 'Developer Tools', id: 'dt', techstack: [
-                { img: 'img/Visual Studio Code (VS Code).png', name: 'VSCode' },
-                { img: 'img/Git.png', name: 'Git' },
-                { img: 'img/GitHub.png', name: 'Github' },
-                { img: 'img/Figma.png', name: 'Figma', },
-                { img: 'img/Adobe Photoshop.png', name: 'Adobe Photoshop' }
+                { svg: 'svg/Visual Studio Code (VS Code).png', name: 'VSCode' },
+                { svg: 'svg/Git.png', name: 'Git' },
+                { svg: 'svg/GitHub.png', name: 'Github' },
+                { svg: 'svg/Figma.png', name: 'Figma', },
+                { svg: 'svg/Adobe Photoshop.png', name: 'Adobe Photoshop' }
             ]
         },
     ]
@@ -52,7 +54,7 @@ export function second() {
         e.techstack.map(x => `
                 <div class="border border-black rounded p-3 md:p-4 h-[60px] flex items-center gap-3 md:gap-4 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 ease-in-out hover:cursor-pointer">
                     <div class=" p-2 w-10 h-10 flex items-center justify-center flex-shrink-0 rounded">
-                        <img src="${x.img}" class="w-7 h-7 object-contain">
+                        ${x.svg}
                     </div>
             <div class="text-sm md:text-base font-medium truncate">${x.name}</div>
                 </div>
