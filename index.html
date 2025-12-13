@@ -80,44 +80,24 @@
 
         <!-- second -->
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-12">
+            <div class="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-
-                <div
-                    class="order-2 md:order-1 flex justify-center md:justify-start">
-
-                    <div class="relative w-full max-w-sm md:max-w-md h-96">
-
-                        <div
-                            class="relative w-full h-full bg-gray-400 z-10 shadow-xl">
-                            <div
-                                class="flex items-center justify-center h-full text-white text-lg">
-                                [YOUR PROFILE PICTURE GOES HERE]
-                            </div>
-                        </div>
-
-                        <div
-                            class="absolute w-full h-full border-8 border-gray-900 top-4 left-4 z-0">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="order-1 md:order-2 space-y-8 p-4 md:p-0">
-
+                <!-- Heading - Shows first on mobile, with text on desktop -->
+                <div class="order-1 md:order-2 md:space-y-8 p-4 md:p-0">
                     <h1
                         class="text-4xl sm:text-5xl font-extrabold text-gray-900">
                         Hello, I'm Leo 👋🏻
                     </h1>
 
-                    <div class="text-gray-600 text-lg space-y-6">
-
+                    <!-- Text content - hidden on mobile, shown on desktop -->
+                    <div
+                        class="hidden md:block text-gray-600 text-lg space-y-6">
                         <p>
                             An enthusiastic 20 years old developer, that has a
                             clear goal and ambition
                             that helps people build what they imagine and turn
                             it into reality as scali
                         </p>
-
                         <p>
                             Collaboration is a core value. My **Humility** and
                             **Empathy** allow me to be fully **Receptive** to
@@ -126,7 +106,6 @@
                             prioritize clear communication to keep projects
                             moving smoothly.
                         </p>
-
                         <p>
                             When it comes to execution, I am **Hard working**,
                             **Dedicated**, and possess the **Perseverance** to
@@ -137,139 +116,219 @@
                     </div>
                 </div>
 
-            </div>
+                <!-- Picture - Shows second on mobile, first on desktop -->
+                <div
+                    class="order-2 md:order-1 flex justify-center md:justify-start">
+                    <div class="relative w-full max-w-sm md:max-w-md h-96">
+                        <div
+                            class="relative w-full h-full bg-gray-400 z-10 shadow-xl">
+                            <div
+                                class="flex items-center justify-center h-full text-white text-lg">
+                                [YOUR PROFILE PICTURE GOES HERE]
+                            </div>
+                        </div>
+                        <div
+                            class="absolute w-full h-full border-8 border-gray-900 top-4 left-4 z-0">
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Text content - Shows third on mobile only -->
+                <div
+                    class="order-3 md:hidden text-gray-600 text-lg space-y-6 px-4">
+                    <p>
+                        An enthusiastic 20 years old developer, that has a
+                        clear goal and ambition
+                        that helps people build what they imagine and turn
+                        it into reality as scali
+                    </p>
+                    <p>
+                        Collaboration is a core value. My **Humility** and
+                        **Empathy** allow me to be fully **Receptive** to
+                        feedback, ensuring the final product is always
+                        better than my initial idea. I'm **Kind** and
+                        prioritize clear communication to keep projects
+                        moving smoothly.
+                    </p>
+                    <p>
+                        When it comes to execution, I am **Hard working**,
+                        **Dedicated**, and possess the **Perseverance** to
+                        tackle complex problems. I use **Creative** thinking
+                        combined with technical skill to deliver robust and
+                        elegant solutions.
+                    </p>
+                </div>
+
+            </div>
         </div>
 
         <!-- third -->
-        <div class="w-full max-w-7xl mx-auto mt-20 p-4">
-    <div
-        class=" m-2 p-4 text-5xl font-stretch-[200%] flex justify-center what">
-        <p>
-            My Professional DNA OR Traits I Possess.
-        </p>
-    </div>
-    
-    <div class="flex flex-row gap-8">
-        
-        <div
-            class="w-1/2 flex justify-center items-center p-4">
-            <svg viewBox="0 0 1024 1024"
-                class="w-full h-auto max-w-md">
-                <defs>
-                    <path id="orbit1"
-                        d="M 512,96 C 577.6,96 640,281.6 640,512 C 640,742.4 577.6,928 512,928 C 446.4,928 384,742.4 384,512 C 384,281.6 446.4,96 512,96 Z" />
-                    <path id="orbit2"
-                        d="M 872,304 C 838.4,246.4 646.4,286.4 448,401.6 C 249.6,516.8 118.4,662.4 152,720 C 185.6,777.6 377.6,737.6 576,622.4 C 774.4,507.2 905.6,361.6 872,304 Z" />
-                    <path id="orbit3"
-                        d="M 152,304 C 185.6,246.4 377.6,286.4 576,401.6 C 774.4,516.8 905.6,662.4 872,720 C 838.4,777.6 646.4,737.6 448,622.4 C 249.6,507.2 118.4,361.6 152,304 Z" />
-                </defs>
-                <g>
-                    <animatetransform
-                        attributeName="transform"
-                        type="rotate"
-                        from="0 512 512"
-                        to="360 512 512"
-                        dur="25s"
-                        repeatCount="indefinite" />
-                    <path
-                        d="M512 960c-92.8 0-160-200-160-448S419.2 64 512 64s160 200 160 448-67.2 448-160 448z m0-32c65.6 0 128-185.6 128-416S577.6 96 512 96s-128 185.6-128 416 62.4 416 128 416z"
-                        fill="#000000" />
-                    <path
-                        d="M124.8 736c-48-80 92.8-238.4 307.2-363.2S852.8 208 899.2 288 806.4 526.4 592 651.2 171.2 816 124.8 736z m27.2-16c33.6 57.6 225.6 17.6 424-97.6S905.6 361.6 872 304 646.4 286.4 448 401.6 118.4 662.4 152 720z"
-                        fill="#000000" />
-                    <path
-                        d="M899.2 736c-46.4 80-254.4 38.4-467.2-84.8S76.8 368 124.8 288s254.4-38.4 467.2 84.8S947.2 656 899.2 736z m-27.2-16c33.6-57.6-97.6-203.2-296-318.4S184 246.4 152 304 249.6 507.2 448 622.4s392 155.2 424 97.6z"
-                        fill="#000000" />
-                    <circle cx="512" cy="512" r="80"
-                        fill="#000000" />
-                    <circle r="27" fill="#00ff00">
-                        <animatemotion dur="6s"
-                            repeatCount="indefinite">
-                            <mpath href="#orbit1" />
-                        </animatemotion>
-                    </circle>
-                    <circle r="27" fill="#ff0000">
-                        <animatemotion dur="6s"
-                            repeatCount="indefinite"
-                            begin="-2s">
-                            <mpath href="#orbit2" />
-                        </animatemotion>
-                    </circle>
-                    <circle r="27" fill="#0000FF">
-                        <animatemotion dur="6s"
-                            repeatCount="indefinite"
-                            begin="-4s">
-                            <mpath href="#orbit3" />
-                        </animatemotion>
-                    </circle>
-                </g>
-            </svg>
-        </div>
-
-        <div class="w-1/2 flex flex-col gap-6">
-
+        <div class="w-full max-w-7xl mx-auto mt-8 md:mt-20 p-4">
             <div
-                class="flex flex-wrap gap-x-4 gap-y-2 p-4 items-start content-start"
-                id="pillSec">
-                </div>
-
-            <div class="px-4 pb-4">
-                <div class="text-xl font-bold mb-3 uppercase tracking-wider text-gray-900">
-                    What You Can Expect About Me
-                </div>
-                
-                <div class="grid grid-cols-2 gap-y-3">
-                    
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <p class="text-black text-base">Detail-Oriented</p>
-                    </div>
-                    
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <p class="text-black text-base">Owns Mistakes</p>
-                    </div>
-                    
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <p class="text-black text-base">Welcomes Feedback</p>
-                    </div>
-                    
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <p class="text-black text-base">Hunger for Success</p>
-                    </div>
-                    
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <p class="text-black text-base">Proactive Communicator</p>
-                    </div>
-                    
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <p class="text-black text-base">Resourceful Solver</p>
-                    </div>
-
-                </div>
+                class="m-2 p-4 text-3xl md:text-5xl font-bold flex justify-center text-center">
+                <p>My Professional DNA OR Traits I Possess.</p>
             </div>
-            
-        </div>
-        </div>
-</div>
 
+            <div class="flex flex-col md:flex-row gap-8 items-center mx-auto">
+
+                <!-- SVG Section -->
+                <div
+                    class="w-full md:w-1/2 flex justify-center items-center p-4">
+                    <svg viewBox="0 0 1024 1024"
+                        class="w-full h-auto max-w-xs md:max-w-md">
+                        <defs>
+                            <path id="orbit1"
+                                d="M 512,96 C 577.6,96 640,281.6 640,512 C 640,742.4 577.6,928 512,928 C 446.4,928 384,742.4 384,512 C 384,281.6 446.4,96 512,96 Z" />
+                            <path id="orbit2"
+                                d="M 872,304 C 838.4,246.4 646.4,286.4 448,401.6 C 249.6,516.8 118.4,662.4 152,720 C 185.6,777.6 377.6,737.6 576,622.4 C 774.4,507.2 905.6,361.6 872,304 Z" />
+                            <path id="orbit3"
+                                d="M 152,304 C 185.6,246.4 377.6,286.4 576,401.6 C 774.4,516.8 905.6,662.4 872,720 C 838.4,777.6 646.4,737.6 448,622.4 C 249.6,507.2 118.4,361.6 152,304 Z" />
+                        </defs>
+                        <g>
+                            <animatetransform
+                                attributeName="transform"
+                                type="rotate"
+                                from="0 512 512"
+                                to="360 512 512"
+                                dur="25s"
+                                repeatCount="indefinite" />
+                            <path
+                                d="M512 960c-92.8 0-160-200-160-448S419.2 64 512 64s160 200 160 448-67.2 448-160 448z m0-32c65.6 0 128-185.6 128-416S577.6 96 512 96s-128 185.6-128 416 62.4 416 128 416z"
+                                fill="#000000" />
+                            <path
+                                d="M124.8 736c-48-80 92.8-238.4 307.2-363.2S852.8 208 899.2 288 806.4 526.4 592 651.2 171.2 816 124.8 736z m27.2-16c33.6 57.6 225.6 17.6 424-97.6S905.6 361.6 872 304 646.4 286.4 448 401.6 118.4 662.4 152 720z"
+                                fill="#000000" />
+                            <path
+                                d="M899.2 736c-46.4 80-254.4 38.4-467.2-84.8S76.8 368 124.8 288s254.4-38.4 467.2 84.8S947.2 656 899.2 736z m-27.2-16c33.6-57.6-97.6-203.2-296-318.4S184 246.4 152 304 249.6 507.2 448 622.4s392 155.2 424 97.6z"
+                                fill="#000000" />
+                            <circle cx="512" cy="512" r="80" fill="#000000" />
+                            <circle r="27" fill="#00ff00">
+                                <animatemotion dur="6s"
+                                    repeatCount="indefinite">
+                                    <mpath href="#orbit1" />
+                                </animatemotion>
+                            </circle>
+                            <circle r="27" fill="#ff0000">
+                                <animatemotion dur="6s" repeatCount="indefinite"
+                                    begin="-2s">
+                                    <mpath href="#orbit2" />
+                                </animatemotion>
+                            </circle>
+                            <circle r="27" fill="#0000FF">
+                                <animatemotion dur="6s" repeatCount="indefinite"
+                                    begin="-4s">
+                                    <mpath href="#orbit3" />
+                                </animatemotion>
+                            </circle>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Content Section -->
+                <div class="w-full md:w-1/2 flex flex-col gap-6 items-center">
+
+                    <!-- Trait Pills -->
+                    <div
+                        class="flex flex-wrap gap-2 md:gap-4 p-4 justify-center"
+                        id="pillSec">
+
+                    </div>
+
+                    <!-- Expectations Section -->
+                    <div class="px-4 pb-4 w-full">
+                        <div
+                            class="text-lg md:text-xl font-bold mb-3 uppercase tracking-wider text-gray-900 text-center md:text-left">
+                            What You Can Expect About Me
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-green-600 flex-shrink-0"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <p
+                                    class="text-black text-sm md:text-base">Detail-Oriented</p>
+                            </div>
+
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-green-600 flex-shrink-0"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <p class="text-black text-sm md:text-base">Owns
+                                    Mistakes</p>
+                            </div>
+
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-green-600 flex-shrink-0"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <p
+                                    class="text-black text-sm md:text-base">Welcomes
+                                    Feedback</p>
+                            </div>
+
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-green-600 flex-shrink-0"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <p
+                                    class="text-black text-sm md:text-base">Hunger
+                                    for Success</p>
+                            </div>
+
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-green-600 flex-shrink-0"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <p
+                                    class="text-black text-sm md:text-base">Proactive
+                                    Communicator</p>
+                            </div>
+
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-green-600 flex-shrink-0"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <p
+                                    class="text-black text-sm md:text-base">Resourceful
+                                    Solver</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
@@ -277,16 +336,10 @@
             <div class="w-[95%] sm:w-[90%] md:w-[85%] mx-auto">
                 <span class="flex justify-start relative">
                     <p
-                        class="what 
-                    text-3xl sm:text-4xl md:text-5xl lg:text-5xl 
-                    font-stretch-[120%] 
-                    translate-x-1
-                    border-b-[3px] sm:border-b-[5px] border-gray-950 
-                    inline-block">
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold translate-x-1 border-b-[3px] sm:border-b-[5px] border-gray-950 inline-block">
                         WHAT I USUALLY DO.
                     </p>
                 </span>
-
                 <div class="w-full mt-10 sm:mt-16 md:mt-20">
                     <div
                         class="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mx-auto"
@@ -447,7 +500,7 @@
                 </p>
             </div>
         </footer>
-        <script src="js/app.js" type="module"></script>
+        <script src="src/js/app.js" type="module"></script>
 
     </body>
 </html>

@@ -67,17 +67,17 @@ export function index() {
 
     const wht = document.getElementById('what').innerHTML = iDo.map((x, i) => {
         return `
-            <div class="border border-l-[4px] border-gray-950 p-3 md:p-4 h-auto flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4 shadow"> 
-                <div class="
-                    bg-black w-[50px] h-[50px] text-white text-lg 
-                    flex items-center justify-center font-bold flex-shrink-0">
+        <div class="border border-l-[4px] border-gray-950 p-3 md:p-4 h-auto shadow mt-4 md:mt-0">
+            <div class="flex items-center gap-3 md:gap-4">
+                <div class="bg-black w-[50px] h-[50px] min-w-[50px] text-white text-lg flex items-center justify-center font-bold flex-shrink-0">
                     ${i + 1}
                 </div>
-                <div class="flex flex-col justify-start tracking-wider"> 
-                    <p class="font-semibold text-base lg:text-2xl sm:text-lg what">${x.name}</p>
-                    <p class="text-sm text-base/7">${x.txt}</p>
+                <div class="flex flex-col gap-2">
+                    <p class="font-semibold text-base sm:text-lg lg:text-xl">${x.name}</p>
+                    <p class="text-sm sm:text-base leading-relaxed">${x.txt}</p>
                 </div>
-            </div>`;
+            </div>
+        </div>`;
     }).join('');
 
     const mNav = document.getElementById('main-nav').innerHTML = navList.map(x => {
