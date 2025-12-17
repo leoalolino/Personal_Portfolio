@@ -46,7 +46,9 @@ export function index() {
                 { img: '/public/img/Git.png', name: 'Git' },
                 { img: '/public/img/GitHub.png', name: 'Github' },
                 { img: '/public/img/Figma.png', name: 'Figma', },
-                { img: '/public/img/Adobe Photoshop.png', name: 'Adobe Photoshop' }
+                { img: '/public/img/Adobe Photoshop.png', name: 'Adobe Photoshop' },
+                { img: '/public/img/Postman.png', name: 'Postman' },
+                { img: '/public/img/NPM.png', name: 'Npm' },
             ]
         },
     ]
