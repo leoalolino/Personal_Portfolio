@@ -90,34 +90,51 @@
 
                 <!-- Heading - Shows first on mobile, with text on desktop -->
                 <div class="order-1 md:order-2 md:space-y-8 p-4 md:p-0">
-                    <h1
-                        class="text-4xl sm:text-5xl font-extrabold text-gray-900">
-                        Hello, I'm Leo 👋🏻
-                    </h1>
+                    <span
+                        class="text-4xl sm:text-5xl font-extrabold text-gray-900 flex">
+                        <p id="nameSec"
+                            class="outline-none whitespace-nowrap overflow-hidden inline-block min-w-[50px]">Hello
+                            I'm Leo 👋🏻</p>
+                        <button type="submit" id="editbout">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                class="hover:cursor-pointer mx-2 w-8 h-8 mx-2"
+                                xmlns="http://www.w3.org/2000/svg"><g
+                                    id="SVGRepo_bgCarrier"
+                                    stroke-width="0"></g><g
+                                    id="SVGRepo_tracerCarrier"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></g><g
+                                    id="SVGRepo_iconCarrier"> <path
+                                        fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M21.1213 2.70705C19.9497 1.53548 18.0503 1.53547 16.8787 2.70705L15.1989 4.38685L7.29289 12.2928C7.16473 12.421 7.07382 12.5816 7.02986 12.7574L6.02986 16.7574C5.94466 17.0982 6.04451 17.4587 6.29289 17.707C6.54127 17.9554 6.90176 18.0553 7.24254 17.9701L11.2425 16.9701C11.4184 16.9261 11.5789 16.8352 11.7071 16.707L19.5556 8.85857L21.2929 7.12126C22.4645 5.94969 22.4645 4.05019 21.2929 2.87862L21.1213 2.70705ZM18.2929 4.12126C18.6834 3.73074 19.3166 3.73074 19.7071 4.12126L19.8787 4.29283C20.2692 4.68336 20.2692 5.31653 19.8787 5.70705L18.8622 6.72357L17.3068 5.10738L18.2929 4.12126ZM15.8923 6.52185L17.4477 8.13804L10.4888 15.097L8.37437 15.6256L8.90296 13.5112L15.8923 6.52185ZM4 7.99994C4 7.44766 4.44772 6.99994 5 6.99994H10C10.5523 6.99994 11 6.55223 11 5.99994C11 5.44766 10.5523 4.99994 10 4.99994H5C3.34315 4.99994 2 6.34309 2 7.99994V18.9999C2 20.6568 3.34315 21.9999 5 21.9999H16C17.6569 21.9999 19 20.6568 19 18.9999V13.9999C19 13.4477 18.5523 12.9999 18 12.9999C17.4477 12.9999 17 13.4477 17 13.9999V18.9999C17 19.5522 16.5523 19.9999 16 19.9999H5C4.44772 19.9999 4 19.5522 4 18.9999V7.99994Z"
+                                        fill="#000000"></path> </g></svg>
+                        </button>
+                        <button type="submit" id="nameSub" class="mx-2 hidden">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                class="w-7 h-7 rounded-md p-1 bg-green-400 "
+                                xmlns="http://www.w3.org/2000/svg"
+                                stroke="#ffffff"><g id="SVGRepo_bgCarrier"
+                                    stroke-width="0"></g><g
+                                    id="SVGRepo_tracerCarrier"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></g><g
+                                    id="SVGRepo_iconCarrier"> <path
+                                        d="M4 12.6111L8.92308 17.5L20 6.5"
+                                        stroke="#ffffff" stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g></svg>
+                        </button>
+                    </span>
 
                     <!-- Text content - hidden on mobile, shown on desktop -->
                     <div
                         class="hidden md:block text-gray-600 text-lg space-y-6">
-                        <p>
+                        <p id="bio" class="h-[320px]">
                             An enthusiastic 20 years old developer, that has a
                             clear goal and ambition
                             that helps people build what they imagine and turn
                             it into reality as scali
-                        </p>
-                        <p>
-                            Collaboration is a core value. My **Humility** and
-                            **Empathy** allow me to be fully **Receptive** to
-                            feedback, ensuring the final product is always
-                            better than my initial idea. I'm **Kind** and
-                            prioritize clear communication to keep projects
-                            moving smoothly.
-                        </p>
-                        <p>
-                            When it comes to execution, I am **Hard working**,
-                            **Dedicated**, and possess the **Perseverance** to
-                            tackle complex problems. I use **Creative** thinking
-                            combined with technical skill to deliver robust and
-                            elegant solutions.
                         </p>
                     </div>
                 </div>
@@ -130,7 +147,7 @@
                             class="relative w-full h-full bg-gray-400 z-10 shadow-xl">
                             <div
                                 class="flex items-center justify-center h-full text-white text-lg">
-                                [YOUR PROFILE PICTURE GOES HERE]
+                                <img src alt>
                             </div>
                         </div>
                         <div
@@ -364,8 +381,36 @@
                     class="w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[70px] md:h-[70px]"
                     alt>
                 <span
-                    class="what text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-stretch-[120%] border-b-[4px] sm:border-b-[5px] md:border-b-[7px] border-gray-950">
-                    TECHSTACK I FREQUENTLY USED AND IM FAMILIAR WITH.
+                    class="what flex text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-stretch-[120%] border-b-[4px] sm:border-b-[5px] md:border-b-[7px] border-gray-950">
+                    <p>TECHSTACK I FREQUENTLY USED AND IM FAMILIAR WITH</p>.
+                    <details class="flex">
+                        <summary>
+                            <svg
+                                fill="#000000"
+                                viewBox="0 0 32 32"
+                                enable-background="new 0 0 32 32"
+                                id="Glyph" version="1.1" xml:space="preserve"
+                                class="w-12 h-12 border border-gray-300 rounded-md p-2 hover:cursor-pointer duration-300 transition-all hover:bg-gray-100"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"><g
+                                    id="SVGRepo_bgCarrier"
+                                    stroke-width="0"></g><g
+                                    id="SVGRepo_tracerCarrier"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></g><g
+                                    id="SVGRepo_iconCarrier"><path
+                                        d="M16,13c-1.654,0-3,1.346-3,3s1.346,3,3,3s3-1.346,3-3S17.654,13,16,13z"
+                                        id="XMLID_287_"></path><path
+                                        d="M6,13c-1.654,0-3,1.346-3,3s1.346,3,3,3s3-1.346,3-3S7.654,13,6,13z"
+                                        id="XMLID_289_"></path><path
+                                        d="M26,13c-1.654,0-3,1.346-3,3s1.346,3,3,3s3-1.346,3-3S27.654,13,26,13z"
+                                        id="XMLID_291_"></path></g></svg>
+
+                            <div class="absolute">
+
+                            </div>
+                        </summary>
+                    </details>
                 </span>
             </div>
 
@@ -383,7 +428,7 @@
             <div class="flex items-center justify-between mb-8">
 
                 <h2 class="text-4xl font-extrabold text-gray-900">
-                    Recent Projects
+                    <p> Recent Projects </p>
                 </h2>
 
                 <a href="#portfolio"

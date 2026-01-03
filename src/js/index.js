@@ -74,7 +74,6 @@ export function index() {
     // 2. Force sizing on the SVGs (This makes them visible)
     const allSvgs = techContainer.querySelectorAll('svg');
     allSvgs.forEach(svg => {
-        // Force dimensions so they aren't 0px
         svg.setAttribute('width', '34');
         svg.setAttribute('height', '34');
         svg.classList.add('w-6', 'h-6', 'block');
@@ -156,3 +155,53 @@ export function index() {
         });
     });
 }
+const nameSec = document.getElementById('nameSec');
+const editbout = document.getElementById('editbout');
+const nameSub = document.getElementById('nameSub');
+const bio = document.getElementById('bio');
+
+const MAX_CHARS = 22; // Set your limit here
+
+// 1. Pencil Icon Click (Start Editing)
+editbout.addEventListener('click', () => {
+    editbout.classList.add('hidden');
+    nameSub.classList.remove('hidden');
+
+    nameSec.contentEditable = "true";
+    nameSec.classList.add('border-4', 'border-blue-400');
+
+    bio.contentEditable = "true";
+    bio.classList.add('border-4', 'border-blue-400');
+
+});
+
+nameSec.addEventListener('keydown', (e) => {
+    // Check for "Enter" (Note: Case sensitive 'Enter')
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        return;
+    }
+
+    // Allow control keys (Backspace, Delete, Arrow keys)
+    const isControlKey = e.key === 'Backspace' || e.key === 'Delete' || e.key.includes('Arrow');
+
+    // If text is at limit and user isn't hitting a control key, block it
+    if (nameSec.innerText.length >= MAX_CHARS && !isControlKey) {
+        e.preventDefault();
+
+        // Optional: brief red flash to show limit reached
+        nameSec.style.color = 'red';
+        setTimeout(() => nameSec.style.color = 'inherit', 200);
+    }
+});
+
+nameSub.addEventListener('click', () => {
+    nameSub.classList.add('hidden');
+    editbout.classList.remove('hidden');
+
+    nameSec.contentEditable = "false";
+    bio.contentEditable = "false";
+
+    nameSec.classList.remove('border-4', 'border-blue-400');
+    bio.classList.remove('border-4', 'border-blue-400');
+});
