@@ -24,7 +24,15 @@ const WebPortTables = async () => {
             label TEXT UNIQUE
         )`)
 
-    if (!Marquee) throw new Error('failed to create hero Table')
+    if (!Marquee) throw new Error('failed to create marquee Table')
+
+    const about = await db.query(`CREATE TABLE IF NOT EXISTS about(
+            id SERIAL PRIMARY KEY,
+            title TEXT,
+            description TEXT
+        )`)
+
+    if (!about) throw new Error('failed to create about Table')
 
 }
 

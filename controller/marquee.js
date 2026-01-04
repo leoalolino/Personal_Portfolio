@@ -1,9 +1,9 @@
 const marqueeMethodServices = require('../services/marqueeServices')
 
 const upload = async (req, res) => {
-    const { label } = req.body
+    const body = req.body
 
-    const labelUploaded = await marqueeMethodServices.uploadService(label)
+    const labelUploaded = await marqueeMethodServices.uploadService(body)
     const { status, message } = labelUploaded
 
     if (labelUploaded.status === "success") return res.status(201).json({ message: message, status: status })
@@ -11,18 +11,34 @@ const upload = async (req, res) => {
     return res.status(400).json({ message: message, status: status })
 }
 const update = async (req, res) => {
-    const { id, label } = req.body
+    const body = req.body
+    const { id } = req.params
 
-    const exist = await marqueeMethodServices.updateService(id, label)
+    const exist = await marqueeMethodServices.updateService(id, body)
     const { status, message } = exist
 
-    if (exist) return res.status(201).json(status, message)
+    if (exist.status === 'success') return res.status(201).json({ message: message, occured: status })
 
-    return res.status(400).json(message, status)
+    return res.status(400).json({ message: message, occured: status })
 }
+
 const remove = async (req, res) => {
+    try {
+        const { id } = req.params;
 
-}
+        const result = await marqueeMethodServices.deleteService(id);
+        const { status, message } = result;
+
+        if (status === 'success') {
+            return res.status(200).json({ message: message, status: status });
+        }
+
+        return res.status(404).json({ message: message, status: status });
+    } catch (error) {
+        // Catch-all for database crashes
+        return res.status(500).json({ message: error.message, status: "error" });
+    }
+};
 module.exports = {
     upload,
     update,
