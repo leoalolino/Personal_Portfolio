@@ -16,7 +16,7 @@ const getRecordByCol = async (tableName, data) => {
     return result.rows[0];
 };
 
-// FLEXIBLE UPLOAD
+// MASTER UPLOAD
 const uploadQueries = async (tableName, data) => {
     const columns = Object.keys(data).join(', ');
     const placeholders = Object.keys(data).map((_, i) => `$${i + 1}`).join(', ');
@@ -27,7 +27,7 @@ const uploadQueries = async (tableName, data) => {
     return result.rows[0];
 };
 
-// FLEXIBLE UPDATE
+// MASTER UPDATE
 const updateQueries = async (tableName, id, data) => {
     const setClause = Object.keys(data)
         .map((key, i) => `${key} = $${i + 1}`)
@@ -40,7 +40,7 @@ const updateQueries = async (tableName, id, data) => {
     const result = await db.query(query, values);
     return result.rows[0];
 };
-// FLEXIBLE DELETE
+// MASTER DELETE
 const deleteQueries = async (tableName, id) => {
     // We use RETURNING * so we can tell the user exactly what was deleted
     const query = `DELETE FROM ${tableName} WHERE id = $1 RETURNING *`;
@@ -52,5 +52,8 @@ module.exports = {
     getRecordByCol,
     uploadQueries,
     updateQueries,
-    deleteQueries // Add this to exports
+    deleteQueries
 };
+
+
+
