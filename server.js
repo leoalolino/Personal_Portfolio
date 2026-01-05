@@ -1,15 +1,22 @@
-const express = require('express')
-const app = express()
-const db = require('./db')
-app.set('view engine', 'ejs')
-app.use(express.json())
+try {
+    const express = require('express')
+    const app = express()
+    const crudRoutes = require('./routes/crud')
 
-app.get('/', (req, res) => {
-    res.render('profile');
-});
+    app.use(express.json())
 
+    app.use(crudRoutes)
 
+    app.set('view engine', 'ejs')
 
-app.listen(3000, () => {
-    console.log('http://localhost:3000')
-})
+    app.get('/', (req, res) => {
+        res.render('profile');
+    });
+
+    app.listen(3000, () => {
+        console.log('http://localhost:3000')
+    })
+}
+catch (e) {
+    console.log(e.message);
+}
