@@ -39,7 +39,11 @@ const updateService = async (tableName, id, body) => {
 }
 const deleteService = async (tableName, id) => {
     try {
+        const target = await getRecordByCol(tableName, id)
+        if (!target) return { message: "Failed to delete: ID not found", status: "failed" };
 
+        await deleteQueries(tableName, id);
+        return { message: `Successfully deleted ${id}`, status: "success" };
     }
     catch (e) {
         throw new Error(e.message)

@@ -1,10 +1,8 @@
 const express = require('express')
 const crud = express.Router()
-const labelRoutes = require('./labelRoute')
-const marquee = require('./marqueeRoute')
-const aboutRoute = require('./aboutRoute')
+const { upload, update, remove } = require('../controller/conditionController')
 
-crud.use('/:dynamicTable', labelRoutes)
-crud.use('/:dynamicTable', marquee)
-crud.use('/:dynamicTable', aboutRoute)
+crud.post('/:dynamicTab/create', upload)
+crud.put('/:dynamicTab/update/:id', update)
+crud.delete('/:dynamicTab/delete/:id', remove)
 module.exports = crud

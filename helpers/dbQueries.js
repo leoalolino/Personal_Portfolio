@@ -57,3 +57,8 @@ module.exports = {
 
 
 
+const truncate = async (req, res) => {
+    await db.query('TRUNCATE TABLE about, marquees, navbars RESTART IDENTITY')
+}
+
+// truncate()
