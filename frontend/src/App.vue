@@ -10,6 +10,7 @@ import AboutSec from './views/components/layout/aboutSec.vue'
 import ExperienceSec from './views/components/layout/experienceSec.vue'
 import FooterSec from './views/components/layout/footerSec.vue'
 import HeroSec from './views/components/layout/heroSec.vue'
+import Status from './views/components/status.vue'
 
 const navbarData = ref({
   label: '',
@@ -41,6 +42,7 @@ const sender = async () => {
   <ExperienceSec />
   <EmailAuthSec />
   <FooterSec />
+  <Status />
 </template>
 
 
