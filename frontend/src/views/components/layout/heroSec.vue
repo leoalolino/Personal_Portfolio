@@ -60,7 +60,7 @@
             Available for
           </p>
           <p class="text-xs font-black uppercase tracking-tighter text-black">
-            Freelance & Full-time
+            Freelance, Internship, and Full-time
           </p>
         </div>
       </div>

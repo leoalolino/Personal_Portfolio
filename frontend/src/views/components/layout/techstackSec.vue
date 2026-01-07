@@ -45,7 +45,7 @@
           <div
             v-for="tech in visibleTech(category.items)"
             :key="tech.name"
-            class="group flex items-center p-4 bg-white border border-gray-200 rounded-xl hover:border-black hover:shadow-md transition-all duration-300 ease-in-out cursor-default"
+            class="group flex items-center p-4 bg-white border border-gray-200 rounded-sm hover:border-black hover:shadow-md transition-all duration-300 ease-in-out cursor-default"
           >
             <div
               class="flex-shrink-0 w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center overflow-hidden border border-gray-100 group-hover:bg-white transition-colors"
@@ -67,6 +67,41 @@
               </p>
             </div>
           </div>
+
+          <button
+            v-if="category.items.length < 4 || isExpanded"
+            key="add-btn"
+            class="group flex items-center p-4 bg-white border-2 border-dashed border-black rounded-sm hover:bg-gray-50 transition-all duration-300 ease-in-out cursor-pointer w-full"
+          >
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center border-2 border-black group-hover:scale-105 transition-transform"
+            >
+              <div
+                class="w-7 h-7 rounded-full border-2 border-black flex items-center justify-center"
+              >
+                <svg
+                  class="w-4 h-4 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="4"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="ml-4 text-left">
+              <h3 class="text-sm font-black text-gray-900 uppercase tracking-wide">Add Tech</h3>
+              <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">
+                New Skill
+              </p>
+            </div>
+          </button>
         </TransitionGroup>
       </div>
     </div>
@@ -92,7 +127,8 @@ const categorizedData = [
       { name: 'Tailwind', svg: '<svg>...</svg>' },
       { name: 'React', svg: '<svg>...</svg>' },
       { name: 'TypeScript', svg: '<svg>...</svg>' },
-      { name: 'Next.js', svg: '<svg>...</svg>' }, // Hidden initially
+      { name: 'Next.js', svg: '<svg>...</svg>' },
+      // This has 5 items: Add Button will be HIDDEN by default (shows on expand)
     ],
   },
   {
@@ -101,8 +137,7 @@ const categorizedData = [
     items: [
       { name: 'Node.js', svg: '<svg>...</svg>' },
       { name: 'Express', svg: '<svg>...</svg>' },
-      { name: 'Python', svg: '<svg>...</svg>' },
-      { name: 'Go', svg: '<svg>...</svg>' },
+      // This has 2 items: Add Button will be VISIBLE by default
     ],
   },
   {
@@ -113,13 +148,13 @@ const categorizedData = [
       { name: 'MongoDB', svg: '<svg>...</svg>' },
       { name: 'Redis', svg: '<svg>...</svg>' },
       { name: 'MySQL', svg: '<svg>...</svg>' },
+      // This has 4 items: Add Button will be HIDDEN by default (shows on expand)
     ],
   },
 ]
 </script>
 
 <style scoped>
-/* Smooth transition for items appearing/disappearing */
 .list-enter-active,
 .list-leave-active {
   transition: all 0.5s ease;
