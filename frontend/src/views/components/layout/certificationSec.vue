@@ -10,12 +10,30 @@
         </p>
       </div>
 
-      <button
-        @click="showAll = !showAll"
-        class="hidden md:flex items-center text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
-      >
-        {{ showAll ? 'Show Less —' : 'View All +' }}
-      </button>
+      <div class="flex gap-6 items-center">
+        <button
+          @click="isDeleteMode = !isDeleteMode"
+          class="inline-flex items-center text-[11px] font-black uppercase tracking-[0.2em] transition-colors"
+          :class="isDeleteMode ? 'text-red-600' : 'text-gray-400 hover:text-black'"
+        >
+          {{ isDeleteMode ? 'Cancel Delete —' : 'Delete Cert +' }}
+          <svg class="ml-2 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+            />
+          </svg>
+        </button>
+
+        <button
+          @click="showAll = !showAll"
+          class="hidden md:flex items-center text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
+        >
+          {{ showAll ? 'Show Less —' : 'View All +' }}
+        </button>
+      </div>
     </div>
 
     <TransitionGroup
@@ -28,6 +46,21 @@
         :key="cert.title"
         class="group flex items-center p-5 bg-white border border-gray-100 rounded-none hover:border-black transition-all duration-300 relative overflow-hidden"
       >
+        <button
+          v-if="isDeleteMode"
+          @click="handleDelete(cert)"
+          class="absolute top-2 right-2 w-6 h-6 bg-red-600 text-white rounded-none flex items-center justify-center shadow-lg hover:bg-black transition-all z-20 active:scale-90"
+        >
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
         <div
           class="flex-shrink-0 w-14 h-14 bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-white transition-colors"
         >
@@ -110,8 +143,10 @@
 import { ref, computed } from 'vue'
 
 const showAll = ref(false)
+const isDeleteMode = ref(false)
 
-const allCertifications = [
+// Converted to ref for reactivity
+const allCertifications = ref([
   {
     title: 'Professional Data Engineer',
     issuer: 'Google Cloud',
@@ -135,7 +170,7 @@ const allCertifications = [
   },
   {
     title: 'Certified Kubernetes Admin',
-    issuer: 'Cloud Native Foundation',
+    issuer: 'CNCF',
     year: '2023',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
     link: '#',
@@ -149,24 +184,27 @@ const allCertifications = [
   },
   {
     title: 'UI/UX Design Specialization',
-    issuer: 'Adobe / Coursera',
+    issuer: 'Adobe',
     year: '2023',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
     link: '#',
   },
-]
+])
 
-// Logic to show only 3 or all
 const visibleCerts = computed(() => {
-  return showAll.value ? allCertifications : allCertifications.slice(0, 3)
+  return showAll.value ? allCertifications.value : allCertifications.value.slice(0, 3)
 })
+
+const handleDelete = (certToRemove) => {
+  allCertifications.value = allCertifications.value.filter((c) => c.title !== certToRemove.title)
+}
 </script>
 
 <style scoped>
-/* Exact same animation style as Tech Stack */
 .list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
+.list-leave-active,
+.list-move {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-enter-from,
 .list-leave-to {

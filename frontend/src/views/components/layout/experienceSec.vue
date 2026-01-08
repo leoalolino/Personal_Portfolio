@@ -1,41 +1,71 @@
 <template>
   <section id="experience" class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-    <div class="mb-12">
-      <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-gray-900 uppercase">
-        Experience
-      </h2>
-      <p class="text-gray-500 mt-2 font-medium uppercase tracking-[0.2em] text-[10px]">
-        Career Path & Industry Contribution
-      </p>
+    <div class="mb-12 flex justify-between items-end">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-gray-900 uppercase">
+          Experience
+        </h2>
+        <p class="text-gray-500 mt-2 font-medium uppercase tracking-[0.2em] text-[10px]">
+          Career Path & Industry Contribution
+        </p>
+      </div>
+
+      <button
+        @click="isDeleteMode = !isDeleteMode"
+        class="inline-flex items-center text-[11px] font-black uppercase tracking-[0.2em] transition-colors"
+        :class="isDeleteMode ? 'text-red-600' : 'text-gray-400 hover:text-black'"
+      >
+        {{ isDeleteMode ? 'Cancel Delete —' : 'Delete Exp +' }}
+        <svg class="ml-2 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+          />
+        </svg>
+      </button>
     </div>
 
     <div
-      class="border-2 border-gray-100 rounded-2xl p-8 lg:p-12 relative h-[520px] overflow-hidden group"
+      class="border-2 border-gray-100 rounded-md p-8 lg:p-12 relative h-[520px] overflow-hidden group bg-white"
       @wheel.prevent="handleScroll"
     >
       <div class="absolute top-8 right-8 flex gap-2 z-10">
         <button
-          v-for="(_, index) in experiences"
+          v-for="(_, index) in baseList"
           :key="index"
           class="w-2 h-2 rounded-full transition-all duration-300"
-          :class="displayIndex === index ? 'bg-black w-6' : 'bg-gray-200'"
+          :class="currentIndex === index ? 'bg-black w-6' : 'bg-gray-200'"
         ></button>
       </div>
 
       <div class="relative h-full perspective-1000">
         <div
-          class="w-full h-full transform-style-3d"
-          :class="{
-            'transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]': !isResetting,
-          }"
+          class="w-full h-full transform-style-3d transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
           :style="{ transform: `translateY(-${currentIndex * 240}px)` }"
         >
           <div
-            v-for="(job, index) in doubledExperiences"
+            v-for="(job, index) in baseList"
             :key="index"
-            class="h-[240px] w-full"
+            class="h-[240px] w-full relative"
             :style="getFaceStyle(index)"
           >
+            <button
+              v-if="isDeleteMode && !job.isAdd"
+              @click="handleDelete(job)"
+              class="absolute top-0 right-0 w-8 h-8 bg-red-600 text-white flex items-center justify-center shadow-lg hover:bg-black transition-all z-20 active:scale-90"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
             <div
               v-if="!job.isAdd"
               class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full bg-white py-2"
@@ -97,15 +127,13 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-// SET THIS TO FALSE to hide the Add button and remove the gap entirely
 const isAuthorized = ref(false)
-
+const isDeleteMode = ref(false)
 const currentIndex = ref(0)
-const isResetting = ref(false)
 const isAnimating = ref(false)
 let autoTimer = null
 
-const experiences = [
+const experiences = ref([
   {
     period: '2024 — Present',
     company: 'Tech Solutions Inc.',
@@ -130,46 +158,26 @@ const experiences = [
     role: 'Junior Dev',
     tasks: ['Maintained legacy PHP codebases.', 'Implemented UI bug fixes.'],
   },
-]
+])
 
-// THE FIX: Only build the list with "Add New" if authorized.
-// This ensures the math (currentIndex * 240) never hits a "dead" space.
 const baseList = computed(() => {
-  const list = [...experiences]
-  if (isAuthorized.value) {
-    list.push({ isAdd: true })
-  }
+  const list = [...experiences.value]
+  if (isAuthorized.value) list.push({ isAdd: true })
   return list
 })
 
-const doubledExperiences = computed(() => [...baseList.value, ...baseList.value])
-const displayIndex = computed(() => currentIndex.value % baseList.value.length)
-
-const startTimer = () => {
-  stopTimer()
-  autoTimer = setInterval(() => {
-    moveStep(1)
-  }, 5000)
-}
-
-const stopTimer = () => {
-  if (autoTimer) clearInterval(autoTimer)
-}
-
 const moveStep = (step) => {
-  if (isResetting.value) return
-  currentIndex.value += step
+  const nextIndex = currentIndex.value + step
+  if (nextIndex < 0 || nextIndex >= baseList.value.length) return
+  currentIndex.value = nextIndex
+}
 
-  // Infinite wrap-around math based on actual list size
-  if (currentIndex.value >= baseList.value.length * 2 - 1) {
-    setTimeout(() => {
-      isResetting.value = true
-      currentIndex.value = currentIndex.value % baseList.value.length
-      setTimeout(() => {
-        isResetting.value = false
-      }, 50)
-    }, 1000)
+const handleDelete = (jobToDelete) => {
+  // If we delete the last item, move the index up so we don't view a blank screen
+  if (currentIndex.value === experiences.value.length - 1 && currentIndex.value > 0) {
+    currentIndex.value--
   }
+  experiences.value = experiences.value.filter((j) => j.company !== jobToDelete.company)
 }
 
 const handleScroll = (event) => {
@@ -179,13 +187,28 @@ const handleScroll = (event) => {
   moveStep(event.deltaY > 0 ? 1 : -1)
   setTimeout(() => {
     isAnimating.value = false
-  }, 800)
+  }, 600)
 }
 
 const getFaceStyle = (index) => {
   const diff = index - currentIndex.value
   if (diff === 0 || diff === 1) return { transform: 'rotateX(0deg)', opacity: 1 }
   return { transform: 'rotateX(-60deg)', opacity: 0 }
+}
+
+const startTimer = () => {
+  stopTimer()
+  autoTimer = setInterval(() => {
+    if (currentIndex.value >= baseList.value.length - 1) {
+      currentIndex.value = 0
+    } else {
+      moveStep(1)
+    }
+  }, 4000)
+}
+
+const stopTimer = () => {
+  if (autoTimer) clearInterval(autoTimer)
 }
 
 onMounted(startTimer)
@@ -198,5 +221,6 @@ onUnmounted(stopTimer)
 }
 .transform-style-3d {
   transform-style: preserve-3d;
+  will-change: transform;
 }
 </style>
