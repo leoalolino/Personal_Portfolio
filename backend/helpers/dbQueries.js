@@ -15,7 +15,22 @@ const getRecordByCol = async (tableName, data) => {
     const result = await db.query(query, values);
     return result.rows[0];
 };
+const fetchQueries = async (tableName) => {
+    const queries = `SELECT * FROM ${tableName}`
+    const result = await db.query(queries)
 
+    if (result.rows.length === 0) return {
+        message: `${tableName} is empty`,
+        status: 'failed',
+        dataRow: []
+    }
+
+    return {
+        message: 'successfully fetch everything',
+        status: 'success',
+        dataRow: result.rows
+    }
+}
 // MASTER UPLOAD
 const uploadQueries = async (tableName, data) => {
     const columns = Object.keys(data).join(', ');
@@ -50,6 +65,7 @@ const deleteQueries = async (tableName, id) => {
 
 module.exports = {
     getRecordByCol,
+    fetchQueries,
     uploadQueries,
     updateQueries,
     deleteQueries

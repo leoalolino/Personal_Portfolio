@@ -1,10 +1,32 @@
 const {
     getRecordByCol,
+    fetchQueries,
     uploadQueries,
     updateQueries,
     deleteQueries
 } = require('../helpers/dbQueries');
-
+const fetchService = async (tableName) => {
+    try {
+        const result = await fetchQueries(tableName)
+        const { message, status, dataRow } = result
+        if (result.status === "success") {
+            return {
+                message: message,
+                status: status,
+                colData: dataRow
+            }
+        }
+        return {
+            message: 'failed to retrieve datas',
+            status: 'failed',
+            colData: dataRow
+        }
+    }
+    catch (e) {
+        console.error(e);
+        throw new Error(e.message);
+    }
+}
 const uploadService = async (tableName, body) => {
     try {
         const exist = await getRecordByCol(tableName, body)
@@ -50,6 +72,7 @@ const deleteService = async (tableName, id) => {
     }
 }
 module.exports = {
+    fetchService,
     uploadService,
     updateService,
     deleteService

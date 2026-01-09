@@ -39,7 +39,7 @@ const sender = async () => {
   <TraitsSec />
   <ProjectsSec />
   <CertificationSec />
-  <ExperienceSec />
+  <!-- <ExperienceSec /> -->
   <TechstackSec />
   <EmailAuthSec />
   <FooterSec />

@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { ref } from 'vue'
 
 const dataBody = [
@@ -66,22 +66,22 @@ const dataBody = [
   {
     emails: [
       {
-        email,
-        message,
+        email: '',
+        message: '',
       },
     ],
   },
   {
     users: [
       {
-        username,
-        password,
-        is_admin,
+        username: '',
+        password: '',
+        is_admin: '',
       },
     ],
   },
 ]
-
+const { techstacks } = dataBody
 const data = ref(dataBody)
 
 const sendBtn = async () => {
@@ -97,12 +97,14 @@ const sendBtn = async () => {
 
 <template>
   <div
-    class="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+    :id="techstacks"
+    class="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 hidden"
   >
     <div
       class="relative flex h-[450px] w-full max-w-lg flex-col justify-center rounded-sm bg-white p-8 shadow-2xl ring-1 ring-black/5"
     >
       <button
+        id="btn"
         class="absolute right-4 top-4 flex size-9 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-all hover:bg-red-500 hover:text-white hover:cursor-pointer"
       >
         <span class="text-xl">×</span>
@@ -116,7 +118,7 @@ const sendBtn = async () => {
             >techstack img</label
           >
           <input
-            type="file"
+            type="text"
             class="w-full cursor-pointer rounded-lg border border-gray-200 bg-gray-50 p-2 text-sm file:mr-4 file:rounded-md file:border-0 file:bg-black file:px-3 file:py-1 file:text-xs file:font-semibold file:text-white hover:bg-gray-100"
           />
         </div>
