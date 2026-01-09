@@ -7,26 +7,44 @@
         </h2>
       </div>
 
-      <button
-        @click="showAll = !showAll"
-        class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-black hover:text-gray-500 transition duration-300 group"
-      >
-        {{ showAll ? 'Show Less' : 'View All Projects' }}
-        <svg
-          :class="{ 'rotate-180': showAll }"
-          class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <div class="flex gap-6 items-center">
+        <button
+          @click="isDeleteMode = !isDeleteMode"
+          class="inline-flex items-center text-xs font-bold uppercase tracking-widest transition-colors"
+          :class="isDeleteMode ? 'text-red-600' : 'text-gray-400 hover:text-black'"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          />
-        </svg>
-      </button>
+          {{ isDeleteMode ? 'Cancel Delete' : 'Delete Project' }}
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+            />
+          </svg>
+        </button>
+
+        <button
+          @click="showAll = !showAll"
+          class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-black hover:text-gray-500 transition duration-300 group"
+        >
+          {{ showAll ? 'Show Less' : 'View All Projects' }}
+          <svg
+            :class="{ 'rotate-180': showAll }"
+            class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <TransitionGroup
@@ -37,8 +55,23 @@
       <div
         v-for="project in visibleProjects"
         :key="project.title"
-        class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-black hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+        class="group relative bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-black hover:shadow-xl transition-all duration-300 flex flex-col h-full"
       >
+        <button
+          v-if="isDeleteMode"
+          @click="handleDelete(project)"
+          class="absolute top-4 right-4 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-black transition-all z-20 active:scale-90"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
         <div class="relative h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
           <div
             class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors z-10"
@@ -134,21 +167,20 @@
 import { ref, computed } from 'vue'
 
 const showAll = ref(false)
+const isDeleteMode = ref(false)
 
-const projects = [
+const projects = ref([
   {
     title: 'Project Title Alpha',
     type: 'Featured Web App',
-    description:
-      'A comprehensive web application developed using React and Tailwind CSS. Focused on user-centric design, robust state management, and seamless API integration.',
+    description: 'A comprehensive web application developed using React and Tailwind CSS.',
     tags: ['React', 'Tailwind', 'Node.js'],
     image: 'https://picsum.photos/seed/app/600/400',
   },
   {
     title: 'Project Title Beta',
     type: 'Mobile Interface',
-    description:
-      'High-performance mobile application with focus on clean architecture and proactive communication.',
+    description: 'High-performance mobile application with focus on clean architecture.',
     tags: ['Vue.js', 'Firebase', 'Native'],
     image: 'https://picsum.photos/seed/mobile/600/400',
   },
@@ -166,21 +198,26 @@ const projects = [
     tags: ['Next.js', 'Stripe', 'Redis'],
     image: 'https://picsum.photos/seed/shop/600/400',
   },
-]
+])
 
 const visibleProjects = computed(() => {
-  return showAll.value ? projects : projects.slice(0, 3)
+  return showAll.value ? projects.value : projects.value.slice(0, 3)
 })
+
+const handleDelete = (projectToDelete) => {
+  projects.value = projects.value.filter((p) => p.title !== projectToDelete.title)
+}
 </script>
 
 <style scoped>
 .list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
+.list-leave-active,
+.list-move {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(20px) scale(0.9);
 }
 </style>

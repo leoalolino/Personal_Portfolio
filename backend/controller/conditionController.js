@@ -1,5 +1,12 @@
 const masterMethodServices = require('../services/masterService')
+const display = async (req, res) => {
+    const { dynamicTab } = req.params
+    const columnTab = await masterMethodServices.fetchService(dynamicTab)
+    const { status, message, colData } = columnTab
 
+    if (columnTab.status === "success") return res.status(201).json({ message: message, status: status, dataCol: colData })
+    return res.status(401).json({ message: message, status: status, colData: colData })
+}
 const upload = async (req, res) => {
     const { dynamicTab } = req.params
     const titleUpload = await masterMethodServices.uploadService(dynamicTab, req.body)
@@ -15,7 +22,7 @@ const update = async (req, res) => {
     const { status, message } = titleUpdate
     if (titleUpdate.status === "success") return res.status(201).json({ message: message, status: status })
 
-    return res.status(401).json({ message: message, status: status })
+    return res.status(401).json({ message: message, status: status, })
 }
 const remove = async (req, res) => {
     const { dynamicTab, id } = req.params
@@ -29,5 +36,6 @@ const remove = async (req, res) => {
 module.exports = {
     upload,
     update,
-    remove
+    remove,
+    display
 }

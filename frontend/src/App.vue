@@ -11,6 +11,7 @@ import ExperienceSec from './views/components/layout/experienceSec.vue'
 import FooterSec from './views/components/layout/footerSec.vue'
 import HeroSec from './views/components/layout/heroSec.vue'
 import Status from './views/components/status.vue'
+import Details from './views/components/details.vue'
 
 const navbarData = ref({
   label: '',
@@ -32,31 +33,20 @@ const sender = async () => {
 </script>
 
   <template>
+  <NavbarSec />
   <HeroSec />
   <AboutSec />
   <TraitsSec />
-  <NavbarSec />
-  <TechstackSec />
   <ProjectsSec />
   <CertificationSec />
-  <ExperienceSec />
+  <!-- <ExperienceSec /> -->
+  <TechstackSec />
   <EmailAuthSec />
   <FooterSec />
-  <Status />
+  <!-- <Status /> -->
+  <Details />
 </template>
 
 
 
 <style scoped></style>
-
-<!-- <form @submit.prevent="sender" class="">
-    <input type="text" v-model="navbarData.label" required />
-    <input
-      type="text"
-      v-model="navbarData.url"
-      :placeholder="navbarData.url || 'url'"
-      required
-      class="border border-gray-300 p-2 rounded-md focus:outline-none"
-    />
-    <button type="submit">submit</button>
-  </form> -->
